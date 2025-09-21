@@ -1,0 +1,4 @@
+# Ignore external chat mode, instruction and prompt files
+.github/chatmodes/**
+.github/instructions/**
+.github/prompts/**
