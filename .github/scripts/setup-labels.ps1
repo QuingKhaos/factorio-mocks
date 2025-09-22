@@ -65,7 +65,7 @@ foreach ($label in $typeLabels) {
 $componentLabels = @(
     @{name="component: architecture"; color="5319e7"; description="Ecosystem architecture and design decisions"},
     @{name="component: ci-cd"; color="1d76db"; description="Continuous integration and deployment"},
-    @{name="component: documentation"; color="0075ca"; description="Project documentation and planning"},
+    @{name="component: planning"; color="0075ca"; description="Project planning, roadmaps, and strategy documents"},
     @{name="component: templates"; color="7057ff"; description="Issue and PR templates"}
 )
 

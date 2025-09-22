@@ -174,7 +174,7 @@ PowerShell -ExecutionPolicy Bypass -File .\.github\scripts\setup-labels.ps1
 - **Creates 21 standardized labels** organized in categories:
   - **Effort Labels**: `effort: quick-win`, `effort: moderate`, `effort: substantial`
   - **Type Labels**: `type: bug`, `type: feature`, `type: documentation`, `type: maintenance`
-  - **Component Labels**: `component: architecture`, `component: ci-cd`, `component: documentation`, `component: templates`
+  - **Component Labels**: `component: architecture`, `component: ci-cd`, `component: planning`, `component: templates`
   - **Ecosystem Labels**: `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
   - **Special Labels**: `adr`, `breaking-change`, `good-first-issue`, `help-wanted`, `needs-discussion`, `blocked`
 
@@ -341,7 +341,7 @@ with custom fields:
 **Existing Labels Already Provide**:
 
 - **Effort tracking**: `effort: quick-win`, `effort: moderate`, `effort: substantial`
-- **Component identification**: `component: architecture`, `component: ci-cd`, `component: documentation`, `component: templates`
+- **Component identification**: `component: architecture`, `component: ci-cd`, `component: planning`, `component: templates`
 - **Ecosystem coordination**: `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
 - **Type classification**: `type: bug`, `type: feature`, `type: documentation`, `type: maintenance`
 - **Community guidance**: `good-first-issue`, `help-wanted`, `needs-discussion`

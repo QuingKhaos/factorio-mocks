@@ -185,7 +185,7 @@ Each new repository should include:
 - **Effort Labels**: `effort: quick-win`, `effort: moderate`, `effort: substantial` (help contributors choose appropriate
   tasks)
 - **Type Labels**: `type: bug`, `type: feature`, `type: documentation`, `type: maintenance`
-- **Component Labels**: `component: architecture`, `component: ci-cd`, `component: documentation`, `component: templates`
+- **Component Labels**: `component: architecture`, `component: ci-cd`, `component: planning`, `component: templates`
 - **Ecosystem Labels**: `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
 - **Special Labels**: `adr`, `breaking-change`, `good-first-issue`, `help-wanted`, `needs-discussion`, `blocked`
 
