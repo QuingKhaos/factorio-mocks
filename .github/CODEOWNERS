@@ -4,8 +4,11 @@
 # Architecture and planning documents require careful review
 /.github/ @QuingKhaos
 /planning/ @QuingKhaos
-/CONTRIBUTING.md @QuingKhaos
 /README.md @QuingKhaos
+
+# Community resources are managed by community leaders
+/CODE_OF_CONDUCT.md @QuingKhaos
+/CONTRIBUTING.md @QuingKhaos
 
 # Critical configuration files
 /.markdownlint.json @QuingKhaos

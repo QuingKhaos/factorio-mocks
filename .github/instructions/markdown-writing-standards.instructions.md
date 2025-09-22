@@ -117,6 +117,7 @@ The following proper nouns must be capitalized correctly:
 - `factorio-mocks-data` (repository name - always use backticks)
 - `factorio-mocks-loader` (repository name - always use backticks)
 - **GitHub** (not `Github`, `github`)
+- **.github** (folder name, used in custom html elements and URLs)
 - **github.com** (not `Github.com`)
 - **github.io** (not `Github.io`)
 - **Ko-fi** (not `kofi`, `Ko-Fi`)
