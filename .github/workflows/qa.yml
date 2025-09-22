@@ -27,7 +27,7 @@ jobs:
 
           # Core planning documents
           test -f "planning/architecture.md" && echo "✅ Architecture documentation found"
-          test -f "planning/decisions.md" && echo "✅ Architectural decisions found"
+          test -d "planning/decisions" && echo "✅ Architectural decisions directory found"
           test -f "planning/implementation-roadmap.md" && echo "✅ Implementation roadmap found"
           test -f "planning/repository-specifications.md" && echo "✅ Repository specifications found"
           test -f "planning/community-engagement.md" && echo "✅ Community engagement found"
@@ -35,6 +35,13 @@ jobs:
           # Essential project files
           test -f "README.md" && echo "✅ README found"
           test -f ".markdownlint.json" && echo "✅ Markdown lint configuration found"
+
+          # Check for ADR files
+          if [ -d "planning/decisions" ] && [ "$(ls -A planning/decisions/adr-*.md 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "✅ ADR files found in planning/decisions/"
+          else
+            echo "❌ No ADR files found in planning/decisions/"
+          fi
 
           echo "✅ Documentation structure check completed"
 

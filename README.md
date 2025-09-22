@@ -118,7 +118,7 @@ Comprehensive planning and architecture documentation is available in the [`plan
 - [`planning/repository-specifications.md`](planning/repository-specifications.md) - Detailed specs for each repository
 - [`planning/implementation-roadmap.md`](planning/implementation-roadmap.md) - Development phases and milestones
 - [`planning/community-engagement.md`](planning/community-engagement.md) - Community strategy, beta testing, and onboarding
-- [`planning/decisions.md`](planning/decisions.md) - Key architectural decisions and rationale
+- [`planning/decisions/`](planning/decisions/) - Architectural Decision Records (ADRs) documenting key design choices
 
 ## Contributing
 

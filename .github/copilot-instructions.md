@@ -50,14 +50,14 @@ The ecosystem consists of five interconnected repositories:
 - All planning documents live in `planning/` directory
 - Use comprehensive markdown linting (`.markdownlint.json` configured)
 - Maintain proper noun consistency (Factorio, GitHub, ORAS, etc.)
-- Document architectural decisions formally in `planning/decisions.md`
+- Document architectural decisions formally in `planning/decisions/adr-NNNN-*.md` via `create-architectural-decision-record.prompt.md`.
 
 ### File Structure
 
 ```bash
 planning/
 ├── architecture.md              # Core ecosystem design
-├── decisions.md                 # Formal architectural decisions
+├── decisions/adr-NNNN-*.md      # Formal architectural decisions
 ├── implementation-roadmap.md    # Technical development phases
 ├── repository-specifications.md # Detailed repo specs
 └── community-engagement.md      # Community strategy
@@ -89,7 +89,7 @@ planning/
 
 ### Planning Updates
 
-1. All architectural changes must be documented in `planning/decisions.md`
+1. All architectural changes must be documented in `planning/decisions/adr-NNNN-<title>.md`
 2. Update relevant planning documents to maintain consistency
 3. Run QA workflow to validate documentation quality
 4. Use conventional commits with clear rationale
