@@ -1,7 +1,7 @@
 name: Feature Request
 description: Suggest a new feature or enhancement for the Factorio Mocks Ecosystem
 title: "[FEATURE] "
-labels: ["type: feature", "needs-triage"]
+labels: ["type: feature"]
 assignees: []
 body:
   - type: markdown
@@ -31,7 +31,7 @@ body:
         - factorio-mocks-modpacks
         - factorio-mocks-data
         - factorio-mocks-loader
-        - Documentation
+        - Planning
         - CI/CD Workflows
         - Cross-component/Architecture
       default: 0
