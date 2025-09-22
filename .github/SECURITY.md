@@ -86,7 +86,7 @@ This ecosystem involves several security-sensitive areas:
 - **Dependabot**: Automated dependency vulnerability scanning (GitHub Actions only)
 - **Secret Scanning**: Prevents accidental credential commits
 - **Branch Protection**: Requires review for all changes
-- **Signed Commits**: Ensures commit authenticity on main branch
+- **Commit Integrity**: GitHub-signed commits via web interface squashing
 - **CI/CD Security**: Minimal required permissions
 - **Manual Code Review**: Primary security control for Lua code
 

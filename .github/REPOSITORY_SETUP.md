@@ -76,18 +76,19 @@ Navigate to **Settings > Branches** and add protection for `main` branch:
 - ✅ **Require status checks to pass before merging**
   - ✅ **Require branches to be up to date before merging**
   - **Required status checks**: Add `Documentation Quality and Linting` (from QA workflow)
-- ✅ **Require signed commits**: Enabled (applies only to commits on `main` branch)
+- ❌ **Require signed commits**: Disabled (would require ALL commits in PRs to be signed, creating contributor barrier)
 - ✅ **Require linear history**: Enabled
 - ❌ **Allow force pushes**: Disabled
 - ❌ **Allow deletions**: Disabled
 
-**Commit Signing Strategy**: Requiring signed commits on `main` ensures all commits in the main branch history
-are cryptographically verified while maintaining an accessible contributor workflow:
+**Commit Signing Strategy**: While signed commits provide cryptographic verification, requiring them creates barriers
+for community contributors who haven't set up GPG keys:
 
-- **Contributors**: No GPG setup required - work on feature branches normally
-- **Squash merging via GitHub web**: Automatically creates signed commits (verified by GitHub's key)
-- **Local merging**: Maintainers with GPG configured can merge locally with their signatures
-- **Result**: 100% signed commit history on `main` with zero barrier to community contributions
+- **GitHub's behavior**: "Require signed commits" applies to ALL commits in PR branches, not just the squashed commits
+- **Current approach**: No signing requirement - prioritizes accessibility for contributors
+- **Squash merging via GitHub web**: Creates commits signed by GitHub's key regardless of original commit signatures
+- **Future consideration**: Could enable signing requirements after established contributor base with GPG setup
+- **Alternative**: Maintainers can manually sign important commits when merging locally if desired
 
 **Single Developer Workflow**: Currently configured for sole maintainer workflow. When additional collaborators join:
 
