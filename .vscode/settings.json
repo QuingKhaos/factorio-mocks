@@ -3,7 +3,7 @@
     "extends": ".markdownlint.json"
   },
   "files.exclude": {
-    "**/.git": true,
+    "**/.git": true
   },
   "search.exclude": {
     "**/.git": true
