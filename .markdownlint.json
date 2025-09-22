@@ -52,7 +52,13 @@
     "names": [
       "Crowdin",
       "Factorio",
+      "factorio-mocks",
+      "factorio-mocks-generator",
+      "factorio-mocks-modpacks",
+      "factorio-mocks-data",
+      "factorio-mocks-loader",
       "GitHub",
+      ".github",
       "github.com",
       "github.io",
       "Ko-fi",

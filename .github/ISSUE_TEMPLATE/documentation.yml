@@ -1,0 +1,131 @@
+name: Documentation Issue
+description: Report problems with documentation or suggest documentation improvements
+title: "[DOCS] "
+labels: ["type: documentation", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve our documentation! Clear, accurate documentation is essential for the success of this project.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please ensure you've completed these steps before submitting
+      options:
+        - label: I have searched existing issues to ensure this isn't a duplicate
+          required: true
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation needs attention?
+      options:
+        - API Documentation
+        - User Guide/Tutorial
+        - Developer Guide
+        - README files
+        - Architecture Documentation
+        - Code Comments
+        - Planning Documents
+        - Contributing Guidelines
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What kind of documentation issue is this?
+      options:
+        - Missing documentation
+        - Incorrect/outdated information
+        - Unclear or confusing content
+        - Typo or formatting issue
+        - Improvement suggestion
+        - Restructuring needed
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is this documentation located?
+      placeholder: |
+        Please provide:
+        - File path: (e.g., planning/architecture.md)
+        - Section: (e.g., "Repository Responsibilities")
+        - Line numbers: (if specific)
+        - URL: (if web documentation)
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-content
+    attributes:
+      label: Current Content
+      description: What does the current documentation say? (if applicable)
+      placeholder: Copy the current text that needs attention
+      render: markdown
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue Description
+      description: What's wrong with the current documentation or what's missing?
+      placeholder: |
+        Describe the problem:
+        - What information is missing, incorrect, or unclear?
+        - How does this affect users or developers?
+        - What confusion or difficulty does this cause?
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-content
+    attributes:
+      label: Suggested Content
+      description: What should the documentation say instead?
+      placeholder: |
+        Provide your suggested content:
+        - New text to add
+        - Corrections to make
+        - Better organization structure
+        - Examples or clarifications needed
+      render: markdown
+
+  - type: textarea
+    id: target-audience
+    attributes:
+      label: Target Audience
+      description: Who is the intended audience for this documentation?
+      placeholder: |
+        Consider:
+        - New contributors
+        - Mod developers
+        - Ecosystem maintainers
+        - End users
+        - Specific technical level
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      description: Would you be interested in helping improve this documentation?
+      options:
+        - label: I would be interested in writing/updating this documentation
+        - label: I could help review proposed changes
+        - label: I could provide examples or use cases
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that would be helpful for improving the documentation

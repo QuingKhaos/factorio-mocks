@@ -1,0 +1,153 @@
+name: Architectural Decision Request
+description: Propose or discuss an architectural change that requires formal decision-making
+title: "[ADR] "
+labels: ["component: architecture", "adr", "needs-discussion"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Important**: This template is for significant architectural decisions that affect the ecosystem design,
+        not for regular feature requests or bug reports. Please use the appropriate template for those.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please ensure you've completed these steps before submitting
+      options:
+        - label: I have reviewed existing ADRs to ensure this isn't already decided
+          required: true
+        - label: This requires an architectural decision (affects design, interfaces, or ecosystem structure)
+          required: true
+        - label: I have considered the ecosystem-wide impact of this decision
+          required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Decision Scope
+      description: What level of the architecture does this affect?
+      options:
+        - Single repository design
+        - Cross-repository interfaces
+        - Ecosystem-wide architecture
+        - Technology stack choices
+        - Development process
+        - Community/governance
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and Problem Statement
+      description: What is the current situation and what problem needs to be solved?
+      placeholder: |
+        Describe:
+        - Current state of the architecture/design
+        - What problem or limitation exists
+        - Why this requires an architectural decision
+        - Any constraints or requirements
+    validations:
+      required: true
+
+  - type: textarea
+    id: stakeholders
+    attributes:
+      label: Affected Stakeholders
+      description: Who would be impacted by this decision?
+      placeholder: |
+        Consider:
+        - Mod developers using the ecosystem
+        - Contributors to the project
+        - Maintainers of specific repositories
+        - Community members
+        - End users
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options Considered
+      description: What are the possible approaches to solve this problem?
+      placeholder: |
+        Option 1: [Brief description]
+        - Pros:
+        - Cons:
+        - Implementation effort:
+
+        Option 2: [Brief description]
+        - Pros:
+        - Cons:
+        - Implementation effort:
+
+        Option 3: [Brief description]
+        - Pros:
+        - Cons:
+        - Implementation effort:
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommended Approach
+      description: Which option do you recommend and why?
+      placeholder: |
+        Recommended: Option X
+
+        Rationale:
+        - Why this option best serves the ecosystem goals
+        - How it aligns with existing architectural principles
+        - Risk mitigation strategies
+        - Implementation plan outline
+
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Expected Consequences
+      description: What are the expected positive and negative consequences?
+      placeholder: |
+        Positive Consequences:
+        - Benefit 1
+        - Benefit 2
+
+        Negative Consequences/Trade-offs:
+        - Trade-off 1
+        - Trade-off 2
+
+        Risks:
+        - Risk 1 (mitigation: ...)
+        - Risk 2 (mitigation: ...)
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Backward Compatibility Impact
+      description: How does this affect existing users and integrations?
+      placeholder: |
+        - Breaking changes: Yes/No
+        - Migration path: [if applicable]
+        - Deprecation timeline: [if applicable]
+        - Communication plan: [how to notify affected users]
+
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: Success Metrics
+      description: How will we measure if this decision was successful?
+      placeholder: |
+        Success criteria:
+        - Metric 1: [how to measure]
+        - Metric 2: [how to measure]
+
+        Timeline for evaluation: [when to review]
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: References, research, or other relevant information
