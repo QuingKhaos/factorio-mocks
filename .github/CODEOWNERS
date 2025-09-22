@@ -1,0 +1,12 @@
+# Global ownership - require review from QuingKhaos for all changes
+* @QuingKhaos
+
+# Architecture and planning documents require careful review
+/.github/ @QuingKhaos
+/planning/ @QuingKhaos
+/CONTRIBUTING.md @QuingKhaos
+/README.md @QuingKhaos
+
+# Critical configuration files
+/.markdownlint.json @QuingKhaos
+/.editorconfig @QuingKhaos

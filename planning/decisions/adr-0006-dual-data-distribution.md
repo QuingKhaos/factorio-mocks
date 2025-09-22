@@ -61,4 +61,4 @@ in ORAS artifacts.
 ## References
 
 - **REF-001**: ORAS artifact distribution strategy documented in ADR-0002
-- **REF-002**: Consumer library implementation in Factorio-mocks-loader repository
+- **REF-002**: Consumer library implementation in `factorio-mocks-loader` repository

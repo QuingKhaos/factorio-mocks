@@ -1,3 +1,5 @@
 .github/logs/*
-planning/issues/*
-planning/pull-requests/*
+.github/drafts/announcements/*
+!.github/drafts/announcements/_TEMPLATE.md
+.github/drafts/issues/*
+.github/drafts/pull-requests/*

@@ -64,4 +64,4 @@ string replacement functionality.
 ## References
 
 - **REF-001**: Factorio LocalisedString documentation in API reference
-- **REF-002**: Localization parser implementation in Factorio-mocks repository
+- **REF-002**: Localization parser implementation in `factorio-mocks` repository
