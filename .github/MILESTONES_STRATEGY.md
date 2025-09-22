@@ -25,7 +25,9 @@ enabling immediate experimentation and validation of core concepts
 - [ ] Community contribution processes established (templates, workflows, guidelines)
 - [ ] GitHub Actions workflows operational for quality assurance
 - [ ] `factorio-mocks-generator` extracts basic Factorio game data (`data.raw`, `mods`, `settings`, `feature_flags`)
-- [ ] `factorio-mocks-loader` provides basic import functionality and environment setup
+- [ ] GitHub Actions automated extraction workflow runs generator in headless Factorio environment
+- [ ] Extracted vanilla Factorio data automatically committed to `factorio-mocks-data` repository
+- [ ] `factorio-mocks-loader` provides basic import functionality and git-based data loading
 - [ ] End-to-end vanilla testing workflow with basic example project
 - [ ] Cross-platform compatibility (Windows, Linux, macOS)
 - [ ] Community validation checkpoint - feedback on project direction and basic functionality
@@ -51,10 +53,13 @@ community-browsable extracted data for compatibility mod creation
 - [ ] Support for multiple popular modpack configurations with daily builds
 - [ ] Community-browsable data repository structure for compatibility development
 - [ ] Automated modpack artifact generation maintaining currency with mod ecosystem
-- [ ] Community validation checkpoint - modpack workflow and data browsing
+- [ ] Documentation for discovering and understanding available modpack configurations
+- [ ] Community modpack configuration request and approval process
+- [ ] Clear cataloging and organization of multiple data sets with ORAS usage examples
+- [ ] Community validation checkpoint - modpack workflow and data management
 
-**Success Metrics**: Community can browse extracted modpack data, use it for compatibility mod creation,
-and request new modpack configurations through established processes
+**Success Metrics**: Community can discover available modpack configurations, browse extracted modpack data,
+use it for compatibility mod creation, and successfully request new modpack configurations through established processes
 
 **Dependencies**: Foundation Complete milestone must be finished
 

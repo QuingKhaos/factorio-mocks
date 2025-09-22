@@ -61,6 +61,21 @@ onboarding processes.*
 - Works in headless/server mode for automation
 - Handles extraction errors gracefully
 
+**Deliverables**:
+
+- [ ] GitHub Actions workflow for automated headless Factorio testing
+- [ ] Automated extraction of vanilla Factorio data using generator mod
+- [ ] Automated commit and push of extracted data to `factorio-mocks-data` repository
+- [ ] Basic repository structure and file organization for extracted data
+- [ ] Documentation for automated extraction process and git-based distribution
+
+**Success Criteria**:
+
+- GitHub Actions successfully runs generator in headless Factorio environment
+- Vanilla Factorio data automatically extracted and committed to repository
+- Automated process validates data integrity and completeness
+- Repository serves as reliable source with up-to-date vanilla data
+
 ### 1.3 `factorio-mocks-loader` - Basic Import
 
 **Deliverables**:
@@ -68,31 +83,29 @@ onboarding processes.*
 - [ ] Create Lua library with basic import functionality
 - [ ] Simple API for loading extracted data
 - [ ] Basic environment setup (globals creation)
-- [ ] File-based data loading (no remote fetching yet)
+- [ ] Git-based data loading from `factorio-mocks-data` repository
 - [ ] Cross-platform compatibility (Windows, Linux, macOS)
 
 **Success Criteria**:
 
-- Can load and set up `data.raw` in test environment
-- Simple one-line setup for basic use cases
+- Can load and set up `data.raw` in test environment from git repository
+- Simple one-line setup for basic use cases using git-based distribution
 - Works consistently across all target platforms
 - Proper error handling for missing or corrupted data
 
-### 1.4 End-to-End Vanilla Testing
-
 **Deliverables**:
 
-- [ ] Complete vanilla Factorio data extraction
-- [ ] Successful import and environment setup
-- [ ] Basic example project demonstrating functionality
-- [ ] Documentation for basic usage
+- [ ] Successful import and environment setup using loader with automated data
+- [ ] Basic example project demonstrating automated workflow
+- [ ] Integration testing validating generator → automation → loader chain
+- [ ] Documentation for complete automated process
 
 **Success Criteria**:
 
-- Full vanilla `data.raw` available for testing
-- Example test suite runs successfully
-- Documentation enables new users to get started
-- Feedback collection from early adopters
+- Automated process successfully extracts and loads vanilla `data.raw`
+- Example project validates extracted data works for basic testing
+- Documentation enables community to use automated data source
+- Process validation confirms Phase 1 components work together automatically
 
 ## Phase 2: Modpack Support and Data Repository
 
@@ -150,21 +163,23 @@ onboarding processes.*
 - Automated validation prevents broken configurations
 - Clear process for requesting new modpack configurations
 
-### 2.4 Community Data Access
+### 2.4 Multi-Modpack Data Management
 
 **Deliverables**:
 
-- [ ] Comprehensive documentation for browsing and using extracted data
-- [ ] Example workflows for compatibility mod development
-- [ ] Community feedback integration and request process
-- [ ] Basic web interface or documentation for data exploration
+- [ ] Documentation for discovering and understanding available modpack configurations
+- [ ] Community modpack configuration request and approval process
+- [ ] Clear cataloging and organization of multiple data sets in `factorio-mocks-data`
+- [ ] Usage examples for consuming modpack-specific data via ORAS
+- [ ] Process documentation for validating and maintaining modpack configurations
 
 **Success Criteria**:
 
-- Community can successfully browse modpack data for development
-- Example workflows enable faster compatibility mod creation
-- Clear process for community requests and contributions
-- Positive feedback from mod developers using the data
+- Community can easily discover which modpack configurations are available
+- Clear process for requesting new modpack configurations with community validation
+- Well-organized data repository structure supports multiple modpack data sets
+- Documentation enables successful consumption of modpack-specific data via ORAS
+- Community successfully requests and receives new modpack configurations
 
 ## Phase 3: Advanced Loader Functionality
 
