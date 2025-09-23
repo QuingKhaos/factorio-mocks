@@ -62,23 +62,48 @@ onboarding processes.*
 - Works consistently in local Factorio installations
 - Handles extraction errors gracefully
 
-#### 1.2.2 Automated Data Pipeline
+#### 1.2.2 Automated Testing Workflow
 
 **Deliverables**:
 
-- [ ] GitHub Actions workflow for automated headless Factorio testing
-- [ ] Headless extraction scenario for containerized operation
-- [ ] Automated extraction of vanilla Factorio data using generator mod
-- [ ] Automated commit and push of extracted data to `factorio-mocks-data` repository
-- [ ] Basic repository structure and file organization for extracted data
-- [ ] Documentation for automated extraction process and git-based distribution
+- [ ] GitHub Actions workflow for automated headless Factorio testing on PRs and pushes to main
+- [ ] Headless extraction execution using direct Factorio headless binary (self-contained, no system dependencies)
+- [ ] Automated testing of generator mod in headless environment with stdout capture
+- [ ] Data validation and integrity checking framework with comprehensive unit tests
+- [ ] Error handling and reporting for extraction failures with detailed logging
+- [ ] Manual trigger capability for on-demand testing during development
+- [ ] Documentation for automated testing process, validation framework, and troubleshooting
 
 **Success Criteria**:
 
-- GitHub Actions successfully runs generator in headless Factorio environment
-- Vanilla Factorio data automatically extracted and committed to repository
-- Automated process validates data integrity and completeness
-- Repository serves as reliable source with up-to-date vanilla data
+- GitHub Actions automatically runs generator mod testing on every PR and push to main
+- Extraction validation framework automatically detects data integrity issues and extraction failures
+- Unit tests achieve comprehensive coverage of validation logic, error detection, and edge cases
+- Automated testing provides reliable feedback and detailed error reporting for extraction functionality
+- Manual triggers work reliably for development testing and validation scenarios
+
+#### 1.2.3 Data Repository Integration (Temporary)
+
+**Deliverables**:
+
+- [ ] Manual workflow to capture validated extraction artifacts and commit to data repository
+- [ ] Automated commit and push of extracted vanilla data to `factorio-mocks-data` repository via manual trigger
+- [ ] Basic repository structure and file organization for vanilla Factorio data
+- [ ] Manual trigger for data updates when Factorio version is updated or data refresh is needed
+- [ ] Validation integration ensuring only tested data gets committed to repository
+- [ ] Documentation for git-based data distribution approach and migration strategy
+
+**Success Criteria**:
+
+- Manual workflow successfully captures extraction artifacts and commits validated data to repository
+- Repository serves as reliable source with current vanilla data updated via manual triggers
+- Manual trigger process is straightforward and well-documented for maintainers
+- Repository structure supports easy browsing and understanding of available vanilla data
+- Clear migration path documented for transition to `factorio-mocks-modpacks` data management in Phase 2.1
+
+**Note**: This is a temporary bridge solution until Phase 2.1 (`factorio-mocks-modpacks`) implements comprehensive modpack
+management. The data commit functionality will be migrated to the modpacks repository when multi-modpack support
+is implemented, enabling immediate community access while Phase 2 development proceeds.
 
 ### 1.3 `factorio-mocks-loader` - Basic Import
 
