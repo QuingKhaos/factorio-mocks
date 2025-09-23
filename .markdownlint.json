@@ -63,7 +63,10 @@
       "github.io",
       "Ko-fi",
       "Lua",
+      "lua-http",
       "lua-LIVR",
+      "lua-LIVR-extra",
+      "LuaRocks",
       "ORAS",
       "Wube"
     ]

@@ -49,7 +49,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Mock APIs**: Hand-crafted mocks for runtime-only Factorio globals
 - **GitHub Actions**: Reusable actions for setting up mocks in CI environments
 - **Example Projects**: Reference implementations for different testing scenarios
-- **Luarocks Distribution**: Easy installation and dependency management
+- **LuaRocks Distribution**: Easy installation and dependency management
 
 ### 2. `factorio-mocks-generator` (Data Extraction)
 
@@ -170,7 +170,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Flexible Configuration**: Extensive customization options
 - **Intelligent Caching**: Automatic staleness detection and updates
 - **Multiple Sources**: Support Git repositories and ORAS artifacts
-- **Luarocks Integration**: Easy installation and dependency management
+- **LuaRocks Integration**: Easy installation and dependency management
 
 ## ORAS Integration Architecture
 
@@ -252,7 +252,7 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.
 
 ### Consumer Integration Workflow
 
-1. **Installation**: Install `factorio-mocks-loader` via Luarocks
+1. **Installation**: Install `factorio-mocks-loader` via LuaRocks
 2. **Configuration**: Specify modpack, version, and data source preferences
 3. **Environment Setup**: Loader fetches data and sets up global environment
 4. **Testing**: Consumer code runs with complete Factorio API mocks available

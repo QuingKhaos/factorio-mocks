@@ -122,6 +122,10 @@ The following proper nouns must be capitalized correctly:
 - **github.io** (not `Github.io`)
 - **Ko-fi** (not `kofi`, `Ko-Fi`)
 - **Lua** (not `lua`, `LUA`)
+- `lua-http` (Lua HTTP library name)
+- `lua-LIVR` (Lua LIVR validation library name)
+- `lua-LIVR-extra` (Extended LIVR validation library name)
+- **LuaRocks** (not `luarocks`, `Luarocks`)
 - **ORAS** (not `oras`, `Oras`)
 - **Wube** (not `wube`, `WUBE`)
 
@@ -146,14 +150,14 @@ easier to identify and preventing confusion with descriptive text.
 
 ```markdown
 The `factorio-mocks-generator` repository contains the extraction logic.
-Install the `factorio-mocks-loader` library using luarocks.
+Install the `factorio-mocks-loader` library using LuaRocks.
 ```
 
 ❌ **Incorrect:**
 
 ```markdown
 The factorio-mocks-generator repository contains the extraction logic.
-Install the **factorio-mocks-loader** library using luarocks.
+Install the **factorio-mocks-loader** library using LuaRocks.
 ```
 
 **Exception**: Repository names in URLs, file paths, and code examples maintain their original formatting.

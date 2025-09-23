@@ -63,7 +63,7 @@ performance and architectural simplicity while leveraging mature validation libr
 ## Implementation Notes
 
 - **IMP-001**: Generator repository bundles pre-generated LIVR validation rules in mod zip during build process
-- **IMP-002**: LIVR rules generated from Factorio's JSON API documentation using lua-LIVR library for native compatibility
+- **IMP-002**: LIVR rules generated from Factorio's JSON API documentation using `lua-LIVR` library for native compatibility
 - **IMP-003**: Validation leverages mature LIVR ecosystem (lua-LIVR and lua-LIVR-extra) for robust rule processing
 - **IMP-004**: Loader implements checksum verification and basic format validation without LIVR dependencies
 - **IMP-005**: Success metrics include 100% validation success for extraction and sub-second loading performance

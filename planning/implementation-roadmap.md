@@ -395,7 +395,7 @@ is implemented, enabling immediate community access while Phase 2 development pr
 
 **Factorio**: Stable API compatibility and continued game development
 **Community**: Active participation in feedback, testing, and contribution
-**Tools**: ORAS tooling, GitHub Actions, Luarocks ecosystem
+**Tools**: ORAS tooling, GitHub Actions, LuaRocks ecosystem
 
 ### Risk Management
 
