@@ -46,24 +46,28 @@ onboarding processes.*
 
 ### 1.2 `factorio-mocks-generator` - Basic Extraction
 
+#### 1.2.1 Core Extraction Functionality
+
 **Deliverables**:
 
 - [ ] Create Factorio mod with basic info.json and structure
 - [ ] Implement prototype stage extraction (`data.raw`, `mods`, `settings`, `feature_flags`)
 - [ ] Basic serialization using Serpent library
-- [ ] Headless extraction scenario for containerized operation
 - [ ] Initial extraction validation and error handling
 
 **Success Criteria**:
 
 - Successfully extracts complete `data.raw` from vanilla Factorio
 - Produces valid, parseable Lua output files
-- Works in headless/server mode for automation
+- Works consistently in local Factorio installations
 - Handles extraction errors gracefully
+
+#### 1.2.2 Automated Data Pipeline
 
 **Deliverables**:
 
 - [ ] GitHub Actions workflow for automated headless Factorio testing
+- [ ] Headless extraction scenario for containerized operation
 - [ ] Automated extraction of vanilla Factorio data using generator mod
 - [ ] Automated commit and push of extracted data to `factorio-mocks-data` repository
 - [ ] Basic repository structure and file organization for extracted data
@@ -92,6 +96,8 @@ onboarding processes.*
 - Simple one-line setup for basic use cases using git-based distribution
 - Works consistently across all target platforms
 - Proper error handling for missing or corrupted data
+
+### 1.4 Integration Validation and Documentation
 
 **Deliverables**:
 
