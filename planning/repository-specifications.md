@@ -109,8 +109,8 @@ factorio-mocks-generator/
 
 **Data Validation**:
 
-- Generate JSON schemas from Factorio's API documentation for validation
-- Validate extracted data for completeness and integrity
+- Generate Lua validation functions from Factorio's JSON API documentation
+- Validate extracted Lua table data for completeness and integrity using native Lua logic
 - Ensure data quality before publishing to consumers
 
 **Data Processing**:

@@ -22,9 +22,10 @@ maintainability across five repositories.
 
 ## Decision
 
-Implement integrated validation architecture with JSON schema generation within `factorio-mocks-generator`,
-build-time schema bundling, and lightweight integrity verification in `factorio-mocks-loader`. This approach
-balances data quality assurance with performance and architectural simplicity across the ecosystem.
+Implement integrated validation architecture using LIVR (Language Independent Validation Rules) with rule generation
+from Factorio's JSON API documentation within `factorio-mocks-generator`, build-time validation rule bundling, and
+lightweight integrity verification in `factorio-mocks-loader`. This approach balances data quality assurance with
+performance and architectural simplicity while leveraging mature validation libraries for native Lua compatibility.
 
 ## Consequences
 
@@ -39,31 +40,33 @@ balances data quality assurance with performance and architectural simplicity ac
 ### Negative
 
 - **NEG-001**: Consumers cannot independently validate data structures without generator dependency
-- **NEG-002**: JSON schemas unavailable for broader Factorio tooling ecosystem reuse
-- **NEG-003**: Schema updates coupled to generator repository lifecycle rather than independent versioning
+- **NEG-002**: LIVR validation rules unavailable for broader Factorio tooling ecosystem reuse
+- **NEG-003**: Validation logic updates coupled to generator repository lifecycle rather than independent versioning
 
 ## Alternatives Considered
 
-### Schema Distribution via ORAS
+### LIVR Rule Distribution via ORAS
 
-- **ALT-001**: **Description**: Distribute JSON schemas as separate ORAS artifacts for ecosystem-wide consumption
+- **ALT-001**: **Description**: Distribute LIVR validation rules as separate ORAS artifacts for ecosystem-wide consumption
 - **ALT-002**: **Rejection Reason**: Adds coordination complexity without clear consumer benefit for current use cases
 
-### Runtime Schema Generation
+### Runtime Rule Generation
 
-- **ALT-003**: **Description**: Generate schemas dynamically during extraction by fetching Factorio API documentation
+- **ALT-003**: **Description**: Generate LIVR rules dynamically during extraction by fetching Factorio API documentation
 - **ALT-004**: **Rejection Reason**: Performance impact and reliability concerns in headless execution environments
 
-### Full Schema Validation in Loader
+### Full LIVR Validation in Loader
 
-- **ALT-005**: **Description**: Implement complete JSON schema validation within loader for consumer independence
+- **ALT-005**: **Description**: Implement complete LIVR validation within loader for consumer independence
 - **ALT-006**: **Rejection Reason**: Redundant validation of pre-validated data with significant performance cost
 
 ## Implementation Notes
 
-- **IMP-001**: Generator repository bundles pre-generated JSON schemas in mod zip during build process
-- **IMP-002**: Loader implements checksum verification and basic format validation without schema dependencies
-- **IMP-003**: Success metrics include 100% validation success for extraction and sub-second loading performance
+- **IMP-001**: Generator repository bundles pre-generated LIVR validation rules in mod zip during build process
+- **IMP-002**: LIVR rules generated from Factorio's JSON API documentation using lua-LIVR library for native compatibility
+- **IMP-003**: Validation leverages mature LIVR ecosystem (lua-LIVR and lua-LIVR-extra) for robust rule processing
+- **IMP-004**: Loader implements checksum verification and basic format validation without LIVR dependencies
+- **IMP-005**: Success metrics include 100% validation success for extraction and sub-second loading performance
 
 ## References
 

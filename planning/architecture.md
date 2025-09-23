@@ -150,7 +150,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Stage Separation**: Clear separation between prototype and runtime data
 - **Language Support**: Localization data for all supported languages
 - **Metadata Rich**: Comprehensive metadata for each configuration
-- **Validation**: JSON schemas for data format validation
+- **Validation**: Lua validation functions generated from Factorio API documentation
 
 ### 5. `factorio-mocks-loader` (Generic Import Library)
 
