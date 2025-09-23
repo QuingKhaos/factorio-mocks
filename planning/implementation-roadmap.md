@@ -122,21 +122,23 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Works consistently across all target platforms
 - Proper error handling for missing or corrupted data
 
-### 1.4 Integration Validation and Documentation
+### 1.4 Example Mod Unit Testing Projects
 
 **Deliverables**:
 
-- [ ] Successful import and environment setup using loader with automated data
-- [ ] Basic example project demonstrating automated workflow
-- [ ] Integration testing validating generator → automation → loader chain
-- [ ] Documentation for complete automated process
+- [ ] Create dedicated example repository with basic mod unit testing project (e.g., `factorio-mocks-example-basic`)
+- [ ] Implement working example mod with comprehensive unit test suite using `factorio-mocks-loader`
+- [ ] Configure GitHub Actions CI/CD workflow for automated testing and validation
+- [ ] Document complete setup process with cloneable starter project approach
+- [ ] Provide working examples of common testing patterns and mock data usage
 
 **Success Criteria**:
 
-- Automated process successfully extracts and loads vanilla `data.raw`
-- Example project validates extracted data works for basic testing
-- Documentation enables community to use automated data source
-- Process validation confirms Phase 1 components work together automatically
+- Example project successfully demonstrates Factorio Mocks Ecosystem value through working unit tests
+- GitHub Actions workflow provides reliable CI/CD integration as living documentation
+- Project can be directly cloned and used as starter template without modification
+- Documentation enables community adoption through concrete, working examples
+- Unit testing framework validates that extracted data works for real mod development scenarios
 
 ## Phase 2: Modpack Support and Data Repository
 

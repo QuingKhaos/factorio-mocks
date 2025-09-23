@@ -28,7 +28,7 @@ enabling immediate experimentation and validation of core concepts
 - [ ] GitHub Actions automated extraction workflow runs generator in headless Factorio environment
 - [ ] Extracted vanilla Factorio data automatically committed to `factorio-mocks-data` repository
 - [ ] `factorio-mocks-loader` provides basic import functionality and git-based data loading
-- [ ] End-to-end vanilla testing workflow with basic example project
+- [ ] Example mod unit testing project with comprehensive test suite and CI/CD integration
 - [ ] Cross-platform compatibility (Windows, Linux, macOS)
 - [ ] Community validation checkpoint - feedback on project direction and basic functionality
 
