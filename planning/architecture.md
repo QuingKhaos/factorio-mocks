@@ -237,7 +237,7 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.
 
 1. **Modpack Preparation**: `factorio-mocks-modpacks` resolves latest compatible mod versions and creates ORAS artifacts
 2. **Environment Setup**: GitHub Actions pulls modpack artifacts and sets up extraction environment
-3. **Data Extraction**: `factorio-mocks-generator` runs in containerized Factorio instance
+3. **Data Extraction**: `factorio-mocks-generator` runs in headless Factorio instance
 4. **Data Processing**: Extract, validate, and format all exportable globals and localization
 5. **Distribution**: Update Git repository and create ORAS artifacts with dual tagging
 6. **Artifact Linking**: Use `oras attach` to link mock data artifacts to their source modpack digest

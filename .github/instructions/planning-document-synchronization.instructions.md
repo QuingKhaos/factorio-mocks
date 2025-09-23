@@ -1,5 +1,8 @@
 ﻿---
-description: 'Instructions for maintaining synchronization between planning documents when changes are made to the implementation roadmap. Ensures consistency across README.md, MILESTONES_STRATEGY.md, and implementation-roadmap.md.'
+description: 'Instructions for maintaining synchronization between planning documents when changes are made to the implementation roadmap. Ensures consistency across READ- Always review synchronized changes in all five documents before committing
+- Consider having another team member review cross-document consistency
+- Test that the community story flows logically from README → Milestones → Roadmap
+- Verify architectural consistency between architecture.md and repository-specifications.mdmd, MILESTONES_STRATEGY.md, and implementation-roadmap.md.'
 applyTo: 'planning/implementation-roadmap.md'
 ---
 
@@ -10,9 +13,10 @@ applyTo: 'planning/implementation-roadmap.md'
 **When making changes to planning/implementation-roadmap.md, you must ensure that related documents remain synchronized
 to maintain consistency across all planning materials.**
 
-The four key documents that must stay aligned are:
+The five key documents that must stay aligned are:
 
 - planning/implementation-roadmap.md (source of truth for detailed planning)
+- planning/architecture.md (high-level ecosystem architecture and design principles)
 - planning/repository-specifications.md (technical architecture and repository designs)
 - .github/MILESTONES_STRATEGY.md (milestone definitions and deliverables)
 - README.md (high-level development priorities for community)
@@ -23,18 +27,24 @@ The four key documents that must stay aligned are:
 
 **If you modify phase goals, deliverables, or success criteria in implementation-roadmap.md:**
 
-1. **Check repository-specifications.md**:
+1. **Check architecture.md**:
+   - Ensure high-level architectural descriptions align with implementation strategy
+   - Update terminology consistency (e.g., "headless" vs "containerized")
+   - Verify data flow descriptions match roadmap workflows
+   - Maintain consistency in repository purposes and ecosystem integration
+
+2. **Check repository-specifications.md**:
    - Update repository purposes and capabilities to support new roadmap deliverables
    - Ensure technical architecture aligns with phase implementation requirements
    - Verify cross-repository integration reflects updated data flow or dependencies
    - Update repository structure specifications if new components are needed
 
-2. **Check MILESTONES_STRATEGY.md**:
+3. **Check MILESTONES_STRATEGY.md**:
    - Update corresponding milestone "Key Deliverables" to match roadmap changes
    - Ensure "Success Metrics" align with roadmap success criteria
    - Verify "Community Value" statements reflect updated phase goals
 
-3. **Check README.md**:
+4. **Check README.md**:
    - Update "Development Priorities" section to reflect major changes
    - Ensure phase descriptions are concise but accurate summaries
    - Maintain consistency in terminology and feature names
@@ -44,6 +54,7 @@ The four key documents that must stay aligned are:
 #### Phase Deliverables Changes
 
 - **Roadmap**: Detailed deliverable lists with checkboxes
+- **Architecture**: High-level descriptions of ecosystem capabilities and data flow
 - **Repository Specs**: Technical capabilities and repository structures needed to support deliverables
 - **Milestones**: High-level deliverable summaries focusing on community value
 - **README**: Concise bullet points highlighting key features
@@ -57,6 +68,7 @@ The four key documents that must stay aligned are:
 #### New Phase Additions
 
 - **Roadmap**: Complete phase specification with all sections
+- **Architecture**: Update ecosystem descriptions to reflect new phase capabilities
 - **Repository Specs**: New repository requirements or architectural changes to support phase
 - **Milestones**: New milestone with full template structure
 - **README**: New phase section in Development Priorities
@@ -74,9 +86,10 @@ The four key documents that must stay aligned are:
 
 After making synchronized changes, verify:
 
-- [ ] All four documents use consistent terminology for features and phases
-- [ ] Phase goals align across all documents (detailed in roadmap, supported by repository specs)
+- [ ] All five documents use consistent terminology for features and phases
+- [ ] Phase goals align across all documents (detailed in roadmap, high-level in architecture)
 - [ ] Technical architecture in repository specs supports roadmap implementation requirements
+- [ ] Architecture document reflects high-level implementation strategies from roadmap
 - [ ] No contradictory information exists between documents
 - [ ] Community-facing language is consistent between README and milestones
 - [ ] Technical detail level is appropriate for each document's audience
@@ -89,6 +102,12 @@ After making synchronized changes, verify:
 - **Audience**: Development team and detailed planners
 - **Content**: Comprehensive phase specifications with full deliverables and success criteria
 - **Updates**: Make changes here first, then synchronize to other documents
+
+### architecture.md (High-Level Architecture)
+
+- **Audience**: Technical contributors and architectural decision makers
+- **Content**: Ecosystem overview, design principles, repository purposes, and data flow
+- **Updates**: Must reflect implementation strategies and terminology from roadmap changes
 
 ### repository-specifications.md (Technical Architecture)
 
@@ -117,19 +136,24 @@ After making synchronized changes, verify:
    - [ ] New feature for community feedback integration
    ```
 
-2. **Update repository-specifications.md**:
+2. **Update architecture.md**:
+   ```markdown
+   **Community Integration**: Real-time feedback collection and analysis
+   ```
+
+3. **Update repository-specifications.md**:
    ```markdown
    **Feedback Integration API**:
    - REST endpoints for community feedback collection
    - Integration with GitHub Discussions API
    ```
 
-3. **Update MILESTONES_STRATEGY.md**:
+4. **Update MILESTONES_STRATEGY.md**:
    ```markdown
    - [ ] Community feedback integration and validation processes
    ```
 
-4. **Update README.md**:
+5. **Update README.md**:
    ```markdown
    - [ ] Community feedback integration and validation workflows
    ```
@@ -137,9 +161,10 @@ After making synchronized changes, verify:
 ### Scenario: Restructuring Phase Goals
 
 1. **Update roadmap phase goal statement**
-2. **Update milestone "Phase Goal" and "Community Value"**
-3. **Update README phase description to match new focus**
-4. **Verify all deliverables still align with new goal**
+2. **Update architecture high-level descriptions to reflect new focus**
+3. **Update milestone "Phase Goal" and "Community Value"**
+4. **Update README phase description to match new focus**
+5. **Verify all deliverables still align with new goal**
 
 ## Quality Assurance
 
