@@ -5,7 +5,8 @@ tools: ['createFile', 'createDirectory', 'editFiles', 'search', 'terminalSelecti
 ---
 # Create Issue Drafts
 
-Create one or more issue drafts from the implementation roadmap, scoped to the users context using the repositories issue templates like we would create an issue from the GitHub UI.
+Create one or more issue drafts from the implementation roadmap, scoped to the users context using the repositories
+issue templates like we would create an issue from the GitHub UI.
 
 ## Inputs
 

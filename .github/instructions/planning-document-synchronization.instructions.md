@@ -7,11 +7,14 @@ applyTo: 'planning/*.md,.github/MILESTONES_STRATEGY.md,.github/drafts/issues/*.m
 
 ## Core Principle
 
-**When making changes to any planning document OR when drafting issues that reveal implementation insights, you must ensure that related documents remain synchronized to maintain consistency across all planning materials.**
+**When making changes to any planning document OR when drafting issues that reveal implementation insights, you must ensure
+that related documents remain synchronized to maintain consistency across all planning materials.**
 
-**No Single Source of Truth**: All planning documents are equal sources of truth. Changes can originate from any document or be discovered during drafting activities, and must be synchronized bidirectionally to maintain ecosystem consistency.
+**No Single Source of Truth**: All planning documents are equal sources of truth. Changes can originate from any document
+or be discovered during drafting activities, and must be synchronized bidirectionally to maintain ecosystem consistency.
 
 **Draft Discovery Process**: When writing issue drafts, discussion drafts, or implementation strategies, you may discover:
+
 - Implementation constraints that affect architectural decisions
 - Technical feasibility issues that require roadmap adjustments
 - Community value insights that require milestone refinements
