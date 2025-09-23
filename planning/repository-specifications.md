@@ -150,7 +150,7 @@ factorio-mocks-modpacks/
 - Direct interface to Factorio Mod Portal API endpoints
 - `/api/mods/{name}/full` for comprehensive mod metadata
 - `/api/mods` for searching and browsing mod collections
-- Native HTTP client implementation without external dependencies
+- Pure mod download manager using Lua HTTP libraries like [`lua-http`](https://daurnimator.github.io/lua-http/0.2/)
 
 **Dependency Resolution Engine**:
 
@@ -173,7 +173,8 @@ factorio-mocks-modpacks/
 
 Compared to `factorio-mod-updater`:
 
-- **Zero External Dependencies**: Pure Lua implementation eliminates Python dependency
+- **No System Dependencies**: Pure Lua implementation eliminates Python runtime requirement
+- **Lua Library Ecosystem**: Uses established Lua HTTP libraries instead of external system tools
 - **API-First Architecture**: Direct Mod Portal API integration
 - **ORAS-Native Workflow**: Designed specifically for container-based artifact distribution
 - **Enhanced Metadata**: Rich dependency trees and compatibility matrices in artifact metadata
