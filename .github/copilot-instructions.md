@@ -288,9 +288,11 @@ releases, breaking changes, community milestones, and progress updates.
   and prototype examples, including unreleased changes for future compatibility validation
 - **[Mod Structure](https://lua-api.factorio.com/latest/auxiliary/mod-structure.html)** - Official mod file structure
   (`info.json`, `settings.lua`, `data.lua`, `control.lua`)
+- **[Command Line Parameters](https://wiki.factorio.com/Command_line_parameters)** - Essential for headless Factorio
+  operations and automated data extraction workflows
 - **[Localisation](https://wiki.factorio.com/Tutorial:Localisation)** - Comprehensive guide to Factorio's localization
   system and LocalisedString handling
-- **[Changelog Format](https://wiki.factorio.com/Tutorial:Mod_changelog_format)** - Standard mod changelog format
+- **[Changelog Format](https://lua-api.factorio.com/latest/auxiliary/changelog-format.html)** - Standard mod changelog format
   for maintaining familiar documentation across all ecosystem repositories
 - **[Mod Portal API](https://wiki.factorio.com/Mod_portal_API)** - Official API for accessing mod information,
   dependencies, and downloads
