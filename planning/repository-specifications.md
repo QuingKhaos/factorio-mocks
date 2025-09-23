@@ -183,6 +183,7 @@ Compared to `factorio-mod-updater`:
 
 **License**: No License (data only)
 **Purpose**: Centralized storage for all generated mock data
+**Main Branch**: `stable` (aligns with Factorio's stable/experimental release naming)
 
 ### Repository Structure
 
@@ -214,6 +215,11 @@ factorio-mocks-data/
 - **Git Repository**: Latest version committed to Git for easy browsing and diff visualization
 - **ORAS Artifacts**: Historical versions stored as container artifacts in GitHub Container Registry
 
+**Branch Strategy**:
+
+- **Git Main Branch**: `stable` (aligns with Factorio's stable/experimental release naming familiar to modders)
+- **ORAS Stable Tags**: `stable` tag for consistent naming across distribution methods
+
 **Artifact Structure**:
 
 ```bash
@@ -228,10 +234,11 @@ ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-v1.2.3
     └── metadata.json        # Extraction metadata
 ```
 
-**Dual Tagging Strategy**:
+**Tagging Strategy**:
 
-- **Semantic Version**: `2024.12.15-v1.2.3` for predictable retrieval
+- **Semantic Version**: `2.0.66-2024.12.15-v1.2.3` for predictable retrieval
 - **Git Commit Hash**: `abc123f` for exact commit linking
+- **Stable Tag**: `stable` for latest data (both Git branch and ORAS tag)
 - **Bidirectional Linking**: Browse commits in Git, pull exact artifacts via ORAS
 
 **ORAS Attachment for Provenance**:
@@ -240,8 +247,8 @@ Mock data artifacts are attached to their source modpack artifacts using `oras a
 
 ```bash
 # Example: Link vanilla mock data to the modpack that generated it
-oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2024.12.15@sha256:abc123...
+oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
 ```
 
 **Provenance Benefits**:
@@ -361,7 +368,7 @@ mocks.setup_environment("pyanodons", {
     stage = "runtime",
     localization = {"en", "fr"},
     cache_dir = "test_cache",
-    version = "2024.11.15-v1.2.1"  -- Specific historical version
+    version = "2.0.66-2024.11.15-v1.2.1"  -- Specific historical version
 })
 
 -- Test runtime prototypes access

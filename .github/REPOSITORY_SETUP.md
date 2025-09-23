@@ -6,6 +6,9 @@ Factorio Mocks Ecosystem.
 **Current Status**: 🚧 **Setup in Progress** - This is the first repository (central hub) of the five-repository
 ecosystem currently being configured.
 
+**Important Note**: The `factorio-mocks-data` repository uses `stable` as its main branch (aligns with Factorio's
+stable/experimental release naming familiar to modders). All other repositories use the standard `main` branch.
+
 ## Repository Settings Configuration
 
 ### 1. General Settings
@@ -63,11 +66,11 @@ PR titles should follow conventional commit format as they become the commit mes
 
 ### 2. Branch Protection Rules
 
-Navigate to **Settings > Branches** and add protection for `main` branch:
+Navigate to **Settings > Branches** and add protection for the main branch:
 
-#### Branch Protection Rule for `main`
+#### Branch Protection Rule for Main Branch
 
-- **Branch name pattern**: `main`
+- **Branch name pattern**: `main` (or `stable` for `factorio-mocks-data` repository)
 - ✅ **Require a pull request before merging**
   - ❌ **Require approvals**: 0 required (single developer workflow)
   - ✅ **Dismiss stale reviews when new commits are pushed**: Enabled
