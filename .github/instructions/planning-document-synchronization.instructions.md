@@ -10,9 +10,10 @@ applyTo: 'planning/implementation-roadmap.md'
 **When making changes to planning/implementation-roadmap.md, you must ensure that related documents remain synchronized
 to maintain consistency across all planning materials.**
 
-The three key documents that must stay aligned are:
+The four key documents that must stay aligned are:
 
 - planning/implementation-roadmap.md (source of truth for detailed planning)
+- planning/repository-specifications.md (technical architecture and repository designs)
 - .github/MILESTONES_STRATEGY.md (milestone definitions and deliverables)
 - README.md (high-level development priorities for community)
 
@@ -22,12 +23,18 @@ The three key documents that must stay aligned are:
 
 **If you modify phase goals, deliverables, or success criteria in implementation-roadmap.md:**
 
-1. **Check MILESTONES_STRATEGY.md**:
+1. **Check repository-specifications.md**:
+   - Update repository purposes and capabilities to support new roadmap deliverables
+   - Ensure technical architecture aligns with phase implementation requirements
+   - Verify cross-repository integration reflects updated data flow or dependencies
+   - Update repository structure specifications if new components are needed
+
+2. **Check MILESTONES_STRATEGY.md**:
    - Update corresponding milestone "Key Deliverables" to match roadmap changes
    - Ensure "Success Metrics" align with roadmap success criteria
    - Verify "Community Value" statements reflect updated phase goals
 
-2. **Check README.md**:
+3. **Check README.md**:
    - Update "Development Priorities" section to reflect major changes
    - Ensure phase descriptions are concise but accurate summaries
    - Maintain consistency in terminology and feature names
@@ -37,6 +44,7 @@ The three key documents that must stay aligned are:
 #### Phase Deliverables Changes
 
 - **Roadmap**: Detailed deliverable lists with checkboxes
+- **Repository Specs**: Technical capabilities and repository structures needed to support deliverables
 - **Milestones**: High-level deliverable summaries focusing on community value
 - **README**: Concise bullet points highlighting key features
 
@@ -49,6 +57,7 @@ The three key documents that must stay aligned are:
 #### New Phase Additions
 
 - **Roadmap**: Complete phase specification with all sections
+- **Repository Specs**: New repository requirements or architectural changes to support phase
 - **Milestones**: New milestone with full template structure
 - **README**: New phase section in Development Priorities
 
@@ -65,8 +74,9 @@ The three key documents that must stay aligned are:
 
 After making synchronized changes, verify:
 
-- [ ] All three documents use consistent terminology for features and phases
-- [ ] Phase goals align across all documents (detailed in roadmap, summarized in others)
+- [ ] All four documents use consistent terminology for features and phases
+- [ ] Phase goals align across all documents (detailed in roadmap, supported by repository specs)
+- [ ] Technical architecture in repository specs supports roadmap implementation requirements
 - [ ] No contradictory information exists between documents
 - [ ] Community-facing language is consistent between README and milestones
 - [ ] Technical detail level is appropriate for each document's audience
@@ -79,6 +89,12 @@ After making synchronized changes, verify:
 - **Audience**: Development team and detailed planners
 - **Content**: Comprehensive phase specifications with full deliverables and success criteria
 - **Updates**: Make changes here first, then synchronize to other documents
+
+### repository-specifications.md (Technical Architecture)
+
+- **Audience**: Development team and technical contributors
+- **Content**: Detailed repository structures, capabilities, and cross-repository integration
+- **Updates**: Must align with roadmap phase requirements and deliverable implementations
 
 ### MILESTONES_STRATEGY.md (Community Milestones)
 
@@ -97,19 +113,26 @@ After making synchronized changes, verify:
 ### Scenario: Adding New Deliverable to Phase 2
 
 1. **Update implementation-roadmap.md**:
-   `markdown
+   ```markdown
    - [ ] New feature for community feedback integration
-   `
+   ```
 
-2. **Update MILESTONES_STRATEGY.md**:
-   `markdown
+2. **Update repository-specifications.md**:
+   ```markdown
+   **Feedback Integration API**:
+   - REST endpoints for community feedback collection
+   - Integration with GitHub Discussions API
+   ```
+
+3. **Update MILESTONES_STRATEGY.md**:
+   ```markdown
    - [ ] Community feedback integration and validation processes
-   `
+   ```
 
-3. **Update README.md**:
-   `markdown
+4. **Update README.md**:
+   ```markdown
    - [ ] Community feedback integration and validation workflows
-   `
+   ```
 
 ### Scenario: Restructuring Phase Goals
 
@@ -152,8 +175,16 @@ After making synchronized changes, verify:
 ### Phase Restructuring
 
 1. Restructure roadmap phases first
-2. Update milestone dependencies and sequencing
-3. Revise README Development Priorities to match new structure
+2. Update repository specifications to support new phase architecture
+3. Update milestone dependencies and sequencing
+4. Revise README Development Priorities to match new structure
+
+### Architectural Changes
+
+1. Update repository specifications with new technical requirements
+2. Ensure roadmap phases align with architectural capabilities
+3. Update milestone deliverables to reflect architectural changes
+4. Update README if architectural changes affect user-facing features
 
 ---
 
