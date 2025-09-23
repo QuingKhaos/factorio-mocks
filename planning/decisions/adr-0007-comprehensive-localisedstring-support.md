@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "localization", "i18n"]
+labels: ["component: architecture", "ecosystem: loader", "ecosystem: generator"]
 supersedes: ""
 superseded_by: ""
 ---

@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "community", "development"]
+labels: ["component: architecture", "component: planning"]
 supersedes: ""
 superseded_by: ""
 ---

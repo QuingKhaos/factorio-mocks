@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "licensing"]
+labels: ["component: architecture"]
 supersedes: ""
 superseded_by: ""
 ---

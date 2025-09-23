@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-23"
 authors: "Development Team"
-tags: ["architecture", "decision", "validation", "generator", "loader"]
+labels: ["component: architecture", "ecosystem: generator", "ecosystem: loader"]
 supersedes: ""
 superseded_by: ""
 ---

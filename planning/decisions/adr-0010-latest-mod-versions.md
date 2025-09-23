@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "versioning", "maintenance"]
+labels: ["component: architecture", "ecosystem: modpacks"]
 supersedes: ""
 superseded_by: ""
 ---
