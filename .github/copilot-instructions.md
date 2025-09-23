@@ -296,8 +296,3 @@ releases, breaking changes, community milestones, and progress updates.
   for maintaining familiar documentation across all ecosystem repositories
 - **[Mod Portal API](https://wiki.factorio.com/Mod_portal_API)** - Official API for accessing mod information,
   dependencies, and downloads
-
-### Infrastructure and Tooling
-
-- **[`factoriotools/factorio`](https://hub.docker.com/r/factoriotools/factorio)** - Docker container image for headless
-  Factorio testing and automated data extraction
