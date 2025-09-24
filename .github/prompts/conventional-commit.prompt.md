@@ -83,7 +83,15 @@ git commit -m "type(scope): description"
 
 ```xml
 <final-step>
-	<cmd>git commit -m "type(scope): description"</cmd>
-	<note>Replace with your constructed message. Include body, footer, and co-authored-by if needed.</note>
+  <cmd>git commit -m "type(scope): description"</cmd>
+  <note>Replace with your constructed message. Include body, footer, and co-authored-by if needed.</note>
+  <powershell-escaping>
+    For PowerShell users, follow these quote escaping rules:
+    - Always use double quotes around the entire commit message
+    - Always use single quotes for any quoted text within the message
+    - This applies to both single-line and multi-line messages
+    - Single-line example: git commit -m "feat(scope): add 'quoted feature'"
+    - Multi-line example: git commit -m "feat(scope): add feature with 'quoted text'[newline][newline]Body text here.[newline][newline]Co-authored-by: GitHub Copilot &lt;copilot@github.com&gt;"
+  </powershell-escaping>
 </final-step>
 ```
