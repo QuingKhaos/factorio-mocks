@@ -627,6 +627,9 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 - [ ] Security settings and Dependabot
 - [ ] Essential labels for PR management (type, component, ecosystem)
 - [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-modpacks
 
@@ -637,6 +640,9 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 - [ ] Security settings and Dependabot
 - [ ] Essential labels for PR management (type, component, ecosystem)
 - [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-data
 
@@ -648,6 +654,9 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 - [ ] Security settings and Dependabot
 - [ ] Essential labels for PR management (type, component, ecosystem)
 - [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-loader
 
@@ -658,6 +667,9 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 - [ ] Security settings and Dependabot
 - [ ] Essential labels for PR management (type, component, ecosystem)
 - [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 ### Next Steps
 
