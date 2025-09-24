@@ -39,7 +39,7 @@ The documentation file must follow the template below, ensuring that all section
 status: "Proposed"
 date: "YYYY-MM-DD"
 authors: "[Stakeholder Names/Roles]"
-tags: ["architecture", "decision"]
+labels: ["component: architecture"]
 supersedes: ""
 superseded_by: ""
 ---

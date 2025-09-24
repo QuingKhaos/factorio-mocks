@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "registry", "infrastructure"]
+labels: ["component: architecture", "component: ci-cd", "ecosystem: data"]
 supersedes: ""
 superseded_by: ""
 ---

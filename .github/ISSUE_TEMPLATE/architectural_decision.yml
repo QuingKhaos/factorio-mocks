@@ -144,8 +144,6 @@ body:
         - Metric 1: [how to measure]
         - Metric 2: [how to measure]
 
-        Timeline for evaluation: [when to review]
-
   - type: textarea
     id: additional
     attributes:

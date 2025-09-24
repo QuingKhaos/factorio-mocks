@@ -2,7 +2,7 @@
 status: "Accepted"
 date: "2025-09-21"
 authors: "Architecture Team"
-tags: ["architecture", "decision", "distribution", "data"]
+labels: ["component: architecture", "ecosystem: data"]
 supersedes: ""
 superseded_by: ""
 ---

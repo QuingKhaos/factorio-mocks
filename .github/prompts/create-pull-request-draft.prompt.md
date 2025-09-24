@@ -37,7 +37,7 @@ front matter for the markdown should be structured correctly as per the example 
 ```markdown
 ---
 title: "docs(github): add pull request draft template"
-labels: ["documentation"]
+labels: ["type: documentation"]
 milestone: "Phase 1"
 ---
 <!-- Use the correct pull request template like you would get if you created the pull request on GitHub -->

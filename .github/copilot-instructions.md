@@ -80,10 +80,12 @@ CONTRIBUTING.md                  # Community contribution guidelines
 
 ### Current Status
 
-- **Phase**: Foundation phase - first repository (`factorio-mocks`) complete, planning refinements in progress
+- **Phase**: Foundation phase - planning refinements completed, ready for repository creation and implementation
 - **Repository Progress**: 1/5 repositories created and configured with full GitHub infrastructure
-- **Planning Status**: Core documentation complete, refinements needed before finalizing foundation phase
-- **Next Phase**: Complete planning refinements, then create remaining 4 repositories and begin prototype development
+- **Planning Status**: Planning documents aligned and synchronized with automated approach and refined deliverables
+- **Recent Updates**: Implementation roadmap restructured for automation, Phase 2.4 refined, planning document
+  synchronization instructions added
+- **Next Phase**: Create remaining 4 repositories and begin prototype development with automated extraction workflow
 - **Dependencies**: None external; all repositories will be created within ecosystem
 
 ### Key Technologies
@@ -258,3 +260,39 @@ releases, breaking changes, community milestones, and progress updates.
 **Architecture**: Five-repository ecosystem with ORAS distribution
 **Philosophy**: Iterative development with community-first approach
 **Timeline Policy**: Never commit to specific dates in documentation
+
+## Technical References
+
+### Factorio API Documentation
+
+- **[Game Startup](https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html#game-startup)** - Game startup process
+  and stage execution order for understanding mod initialization sequence
+- **[Settings API](https://wiki.factorio.com/Tutorial:Mod_settings)** - Mod settings system for settings stage
+  support and mocking capabilities
+- **[Settings Stage](https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html#settings-stage)** - Understanding
+  settings stage capabilities and data access
+- **[Prototype API](https://lua-api.factorio.com/latest/index-prototype.html)** - API available during prototype stage
+  (data stage) for data extraction
+- **[Prototype Stage](https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html#prototype-stage)** - Understanding
+  prototype-time (data stage) data availability and extraction timing
+- **[Runtime API](https://lua-api.factorio.com/latest/index-runtime.html)** - API available during runtime stage
+  (control stage) for Phase 3.1+ features
+- **[Runtime Stage](https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html#save-startup)** - Understanding
+  runtime stage (control stage) capabilities and data access
+- **[Auxiliary API](https://lua-api.factorio.com/latest/index-auxiliary.html)** - Additional API documentation on important
+  or advanced topics related to the modding API.
+
+### Factorio Development Resources
+
+- **[Factorio Data Repository](https://github.com/wube/factorio-data)** - Official Factorio base game data definitions
+  and prototype examples, including unreleased changes for future compatibility validation
+- **[Mod Structure](https://lua-api.factorio.com/latest/auxiliary/mod-structure.html)** - Official mod file structure
+  (`info.json`, `settings.lua`, `data.lua`, `control.lua`)
+- **[Command Line Parameters](https://wiki.factorio.com/Command_line_parameters)** - Essential for headless Factorio
+  operations and automated data extraction workflows
+- **[Localisation](https://wiki.factorio.com/Tutorial:Localisation)** - Comprehensive guide to Factorio's localization
+  system and LocalisedString handling
+- **[Changelog Format](https://lua-api.factorio.com/latest/auxiliary/changelog-format.html)** - Standard mod changelog format
+  for maintaining familiar documentation across all ecosystem repositories
+- **[Mod Portal API](https://wiki.factorio.com/Mod_portal_API)** - Official API for accessing mod information,
+  dependencies, and downloads

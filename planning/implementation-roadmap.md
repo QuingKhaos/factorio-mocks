@@ -34,7 +34,7 @@ onboarding processes.*
 
 **Deliverables**:
 
-- [ ] Complete planning documentation in `factorio-mocks` repository
+- [x] Complete planning documentation in `factorio-mocks` repository
 - [ ] Create all five repositories with proper structure and licenses
 - [ ] Set up GitHub Actions workflows for basic CI/CD
 - [ ] Establish community contribution guidelines and RFC process
@@ -46,20 +46,64 @@ onboarding processes.*
 
 ### 1.2 `factorio-mocks-generator` - Basic Extraction
 
+#### 1.2.1 Core Extraction Functionality
+
 **Deliverables**:
 
 - [ ] Create Factorio mod with basic info.json and structure
 - [ ] Implement prototype stage extraction (`data.raw`, `mods`, `settings`, `feature_flags`)
 - [ ] Basic serialization using Serpent library
-- [ ] Headless extraction scenario for containerized operation
 - [ ] Initial extraction validation and error handling
 
 **Success Criteria**:
 
 - Successfully extracts complete `data.raw` from vanilla Factorio
 - Produces valid, parseable Lua output files
-- Works in headless/server mode for automation
+- Works consistently in local Factorio installations
 - Handles extraction errors gracefully
+
+#### 1.2.2 Automated Testing Workflow
+
+**Deliverables**:
+
+- [ ] GitHub Actions workflow for automated headless Factorio testing on PRs and pushes to main
+- [ ] Headless extraction execution using direct Factorio headless binary (self-contained, no system dependencies)
+- [ ] Automated testing of generator mod in headless environment with stdout capture
+- [ ] Data validation and integrity checking framework with comprehensive unit tests
+- [ ] Error handling and reporting for extraction failures with detailed logging
+- [ ] Manual trigger capability for on-demand testing during development
+- [ ] Documentation for automated testing process, validation framework, and troubleshooting
+
+**Success Criteria**:
+
+- GitHub Actions automatically runs generator mod testing on every PR and push to main
+- Extraction validation framework automatically detects data integrity issues and extraction failures
+- Unit tests achieve comprehensive coverage of validation logic, error detection, and edge cases
+- Automated testing provides reliable feedback and detailed error reporting for extraction functionality
+- Manual triggers work reliably for development testing and validation scenarios
+
+#### 1.2.3 Data Repository Integration (Temporary)
+
+**Deliverables**:
+
+- [ ] Manual workflow to capture validated extraction artifacts and commit to data repository
+- [ ] Automated commit and push of extracted vanilla data to `factorio-mocks-data` repository via manual trigger
+- [ ] Basic repository structure and file organization for vanilla Factorio data
+- [ ] Manual trigger for data updates when Factorio version is updated or data refresh is needed
+- [ ] Validation integration ensuring only tested data gets committed to repository
+- [ ] Documentation for git-based data distribution approach and migration strategy
+
+**Success Criteria**:
+
+- Manual workflow successfully captures extraction artifacts and commits validated data to repository
+- Repository serves as reliable source with current vanilla data updated via manual triggers
+- Manual trigger process is straightforward and well-documented for maintainers
+- Repository structure supports easy browsing and understanding of available vanilla data
+- Clear migration path documented for transition to `factorio-mocks-modpacks` data management in Phase 2.1
+
+**Note**: This is a temporary bridge solution until Phase 2.1 (`factorio-mocks-modpacks`) implements comprehensive modpack
+management. The data commit functionality will be migrated to the modpacks repository when multi-modpack support
+is implemented, enabling immediate community access while Phase 2 development proceeds.
 
 ### 1.3 `factorio-mocks-loader` - Basic Import
 
@@ -68,31 +112,33 @@ onboarding processes.*
 - [ ] Create Lua library with basic import functionality
 - [ ] Simple API for loading extracted data
 - [ ] Basic environment setup (globals creation)
-- [ ] File-based data loading (no remote fetching yet)
+- [ ] Git-based data loading from `factorio-mocks-data` repository
 - [ ] Cross-platform compatibility (Windows, Linux, macOS)
 
 **Success Criteria**:
 
-- Can load and set up `data.raw` in test environment
-- Simple one-line setup for basic use cases
+- Can load and set up `data.raw` in test environment from git repository
+- Simple one-line setup for basic use cases using git-based distribution
 - Works consistently across all target platforms
 - Proper error handling for missing or corrupted data
 
-### 1.4 End-to-End Vanilla Testing
+### 1.4 Example Mod Unit Testing Projects
 
 **Deliverables**:
 
-- [ ] Complete vanilla Factorio data extraction
-- [ ] Successful import and environment setup
-- [ ] Basic example project demonstrating functionality
-- [ ] Documentation for basic usage
+- [ ] Create dedicated example repository with basic mod unit testing project (e.g., `factorio-mocks-example-basic`)
+- [ ] Implement working example mod with comprehensive unit test suite using `factorio-mocks-loader`
+- [ ] Configure GitHub Actions CI/CD workflow for automated testing and validation
+- [ ] Document complete setup process with cloneable starter project approach
+- [ ] Provide working examples of common testing patterns and mock data usage
 
 **Success Criteria**:
 
-- Full vanilla `data.raw` available for testing
-- Example test suite runs successfully
-- Documentation enables new users to get started
-- Feedback collection from early adopters
+- Example project successfully demonstrates Factorio Mocks Ecosystem value through working unit tests
+- GitHub Actions workflow provides reliable CI/CD integration as living documentation
+- Project can be directly cloned and used as starter template without modification
+- Documentation enables community adoption through concrete, working examples
+- Unit testing framework validates that extracted data works for real mod development scenarios
 
 ## Phase 2: Modpack Support and Data Repository
 
@@ -150,21 +196,23 @@ onboarding processes.*
 - Automated validation prevents broken configurations
 - Clear process for requesting new modpack configurations
 
-### 2.4 Community Data Access
+### 2.4 Multi-Modpack Data Management
 
 **Deliverables**:
 
-- [ ] Comprehensive documentation for browsing and using extracted data
-- [ ] Example workflows for compatibility mod development
-- [ ] Community feedback integration and request process
-- [ ] Basic web interface or documentation for data exploration
+- [ ] Documentation for discovering and understanding available modpack configurations
+- [ ] Community modpack configuration request and approval process
+- [ ] Clear cataloging and organization of multiple data sets in `factorio-mocks-data`
+- [ ] Usage examples for consuming modpack-specific data via ORAS
+- [ ] Process documentation for validating and maintaining modpack configurations
 
 **Success Criteria**:
 
-- Community can successfully browse modpack data for development
-- Example workflows enable faster compatibility mod creation
-- Clear process for community requests and contributions
-- Positive feedback from mod developers using the data
+- Community can easily discover which modpack configurations are available
+- Clear process for requesting new modpack configurations with community validation
+- Well-organized data repository structure supports multiple modpack data sets
+- Documentation enables successful consumption of modpack-specific data via ORAS
+- Community successfully requests and receives new modpack configurations
 
 ## Phase 3: Advanced Loader Functionality
 
@@ -235,7 +283,7 @@ onboarding processes.*
 - Example CI/CD configurations work for common scenarios
 - All platforms supported in automated testing
 
-## Phase 4: Production Readiness
+## Phase 4: Community Ready
 
 **Goal**: Optimize performance, enhance security, and prepare for community adoption
 
@@ -305,35 +353,6 @@ onboarding processes.*
 
 ## Success Metrics and Evaluation
 
-### Adoption Metrics
-
-**Phase 1 Targets**:
-
-- 10+ community members providing feedback on planning documents
-- 3+ mod developers testing basic extraction and loading functionality
-- 1+ external contribution to documentation or examples
-
-**Phase 2 Targets**:
-
-- 5+ mod developers actively browsing modpack data for compatibility development
-- 50+ GitHub stars across all repositories
-- 3+ popular modpacks with daily-updated mock data available
-- 10+ community requests for additional modpack configurations
-
-**Phase 3 Targets**:
-
-- 15+ mod projects using the ecosystem for testing with advanced loader features
-- 100+ Luarocks downloads of loader library
-- 5+ community contributions (code, documentation, or configurations)
-- 10+ mod projects with CI/CD integration
-
-**Phase 4 Targets**:
-
-- 25+ mod projects actively using the ecosystem
-- 200+ GitHub stars across repositories
-- 10+ community-contributed modpack configurations
-- Positive community feedback and satisfaction surveys
-
 ### Quality Metrics
 
 **Technical Standards**:
@@ -378,7 +397,7 @@ onboarding processes.*
 
 **Factorio**: Stable API compatibility and continued game development
 **Community**: Active participation in feedback, testing, and contribution
-**Tools**: ORAS tooling, GitHub Actions, Luarocks ecosystem
+**Tools**: ORAS tooling, GitHub Actions, LuaRocks ecosystem
 
 ### Risk Management
 

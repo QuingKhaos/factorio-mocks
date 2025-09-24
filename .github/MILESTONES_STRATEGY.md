@@ -13,85 +13,103 @@ Use milestones to track major phase completion rather than version releases:
 
 #### Milestone 1: Foundation Complete
 
-**Phase Goal**: Establish complete project infrastructure and planning foundation for ecosystem development
+**Phase Goal**: Establish core infrastructure and basic functionality for the ecosystem
 
-**Community Value**: Provides clear project direction, contribution pathways, and development infrastructure
-that enables community participation from day one
+**Community Value**: Provides complete working foundation with basic data extraction and loading capabilities,
+enabling immediate experimentation and validation of core concepts
 
 **Key Deliverables**:
 
 - [ ] All 5 repositories created with proper structure and documentation
-- [ ] Complete planning documentation published and accessible
+- [x] Complete planning documentation published and accessible
 - [ ] Community contribution processes established (templates, workflows, guidelines)
 - [ ] GitHub Actions workflows operational for quality assurance
-- [ ] ADR process functional for architectural decisions
-- [ ] Community validation checkpoint - feedback on project direction and approach
+- [ ] `factorio-mocks-generator` extracts basic Factorio game data (`data.raw`, `mods`, `settings`, `feature_flags`)
+- [ ] GitHub Actions automated extraction workflow runs generator in headless Factorio environment
+- [ ] Extracted vanilla Factorio data automatically committed to `factorio-mocks-data` repository
+- [ ] `factorio-mocks-loader` provides basic import functionality and git-based data loading
+- [ ] Example mod unit testing project with comprehensive test suite and CI/CD integration
+- [ ] Cross-platform compatibility (Windows, Linux, macOS)
+- [ ] Community validation checkpoint - feedback on project direction and basic functionality
 
-**Success Metrics**: Community can understand project goals, contribute effectively, and development
-infrastructure supports quality contributions
+**Success Metrics**: Community can understand project goals, contribute effectively, generate basic mock data,
+and use it for simple testing scenarios
 
 **Dependencies**: None - this is the foundational phase
 
-#### Milestone 2: Generator Prototype
+#### Milestone 2: Modpack Support and Data Repository
 
-**Phase Goal**: Deliver working proof-of-concept for Factorio data extraction and serialization
+**Phase Goal**: Enable modpack support, ORAS integration, and community-accessible mock data browsing
 
-**Community Value**: Enables early experimentation with mock data generation, validates core technical approach,
-and provides concrete examples for community feedback
+**Community Value**: Enables modpack-based development workflows with automated data generation and
+community-browsable extracted data for compatibility mod creation
 
 **Key Deliverables**:
 
-- [ ] `factorio-mocks-generator` extracts basic Factorio game data
-- [ ] Proof-of-concept data serialization working with JSON output
-- [ ] Basic CLI interface for generator usage
-- [ ] Documentation for generator installation and usage
-- [ ] First community testing feedback incorporated
-- [ ] Community validation checkpoint - technical approach validation
+- [ ] `factorio-mocks-modpacks` repository with native Factorio Mod Portal API client
+- [ ] Recursive dependency resolution with conflict detection for mod combinations
+- [ ] ORAS artifact creation and GitHub Container Registry integration
+- [ ] Dual tagging strategy (semantic versions + Git commits) for artifacts
+- [ ] Support for multiple popular modpack configurations with daily builds
+- [ ] Community-browsable data repository structure for compatibility development
+- [ ] Automated modpack artifact generation maintaining currency with mod ecosystem
+- [ ] Documentation for discovering and understanding available modpack configurations
+- [ ] Community modpack configuration request and approval process
+- [ ] Clear cataloging and organization of multiple data sets with ORAS usage examples
+- [ ] Community validation checkpoint - modpack workflow and data management
 
-**Success Metrics**: Community members can generate basic mock data and provide meaningful feedback
-on the approach and output quality
+**Success Metrics**: Community can discover available modpack configurations, browse extracted modpack data,
+use it for compatibility mod creation, and successfully request new modpack configurations through established processes
 
 **Dependencies**: Foundation Complete milestone must be finished
 
-#### Milestone 3: Ecosystem Integration
+#### Milestone 3: Advanced Loader Functionality
 
-**Phase Goal**: Connect all ecosystem components with end-to-end data flow working
+**Phase Goal**: Add runtime extraction, localization, intelligent caching, and CI/CD capabilities
 
-**Community Value**: Delivers complete workflow from data generation to consumption, enabling real mod
-testing scenarios and comprehensive ecosystem validation
+**Community Value**: Provides advanced functionality for comprehensive testing scenarios including
+runtime data, localization support, performance optimization, and automated CI/CD integration
 
 **Key Deliverables**:
 
-- [ ] ORAS artifact distribution working with GitHub Container Registry
-- [ ] `factorio-mocks-loader` can consume generated data artifacts
-- [ ] `factorio-mocks-modpacks` provides curated mod combinations
-- [ ] End-to-end testing workflow established and documented
-- [ ] Cross-repository coordination and versioning working
-- [ ] Community validation checkpoint - complete workflow testing
+- [ ] Runtime stage extraction for `prototypes` and `settings` data during game runtime
+- [ ] Comprehensive localization support with LocalisedString processing and multi-language capabilities
+- [ ] Intelligent caching system with automatic staleness detection and configurable policies
+- [ ] GitHub Actions integration with reusable actions for automated testing workflows
+- [ ] Cross-platform testing automation and CI/CD integration examples
+- [ ] Performance optimization for loading times and memory usage
+- [ ] Advanced API features for complex testing scenarios
+- [ ] Community validation checkpoint - advanced feature testing and CI/CD integration
 
-**Success Metrics**: Community can generate, distribute, and consume mock data for real mod testing scenarios
+**Success Metrics**: Community can use advanced features for comprehensive mod testing, automated CI/CD
+workflows, and multi-language testing scenarios with optimized performance
 
-**Dependencies**: Generator Prototype milestone must be finished
+**Dependencies**: Modpack Support and Data Repository milestone must be finished
 
 #### Milestone 4: Community Ready
 
 **Phase Goal**: Production-ready ecosystem optimized for widespread community adoption
 
 **Community Value**: Provides polished, performant, and well-documented tooling that supports diverse
-community use cases and scales to broader adoption
+community use cases and scales to broader adoption with production-grade reliability
 
 **Key Deliverables**:
 
-- [ ] Comprehensive documentation and tutorials for all use cases
-- [ ] Multiple modpack configurations available for different scenarios
-- [ ] Performance optimized for common use cases and large mod sets
-- [ ] Community feedback incorporated from integration testing
-- [ ] Production deployment guides and best practices
-- [ ] Community validation checkpoint - production readiness assessment
+- [ ] Comprehensive performance analysis and optimization for large datasets
+- [ ] Security review of authentication, credential handling, and input validation
+- [ ] Comprehensive test coverage (90%+) for all ecosystem components
+- [ ] Complete documentation and tutorials for all use cases and workflows
+- [ ] Migration guides and best practices for production deployment
+- [ ] Community feedback incorporation from real-world usage scenarios
+- [ ] Cross-platform compatibility validation and automated testing
+- [ ] Error handling and recovery improvements with comprehensive logging
+- [ ] Production deployment guides with monitoring and troubleshooting
+- [ ] Community validation checkpoint - production readiness verification
 
-**Success Metrics**: Ecosystem supports diverse community needs efficiently and is ready for public announcement
+**Success Metrics**: Ecosystem supports diverse community needs efficiently, demonstrates production-grade
+reliability, and is ready for widespread community adoption and public announcement
 
-**Dependencies**: Ecosystem Integration milestone must be finished
+**Dependencies**: Advanced Loader Functionality milestone must be finished
 
 ### Version-Based Milestones (Future Use)
 
@@ -161,8 +179,8 @@ paths and reliable performance at scale
 ### Current Milestones to Create
 
 1. **Foundation Complete**
-2. **Generator Prototype**
-3. **Ecosystem Integration**
+2. **Modpack Support and Data Repository**
+3. **Advanced Loader Functionality**
 4. **Community Ready**
 
 ### Milestone Description Template

@@ -1,7 +1,7 @@
 name: Bug Report
 description: Report a bug in the Factorio Mocks Ecosystem
 title: "[BUG] "
-labels: ["type: bug", "needs-triage"]
+labels: ["type: bug"]
 assignees: []
 body:
   - type: markdown
@@ -31,7 +31,7 @@ body:
         - factorio-mocks-modpacks
         - factorio-mocks-data
         - factorio-mocks-loader
-        - Documentation
+        - Planning
         - CI/CD Workflows
         - Not sure
       default: 0

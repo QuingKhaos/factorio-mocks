@@ -83,9 +83,8 @@ factorio-mocks-generator/
 │   ├── prototype-extractor.lua
 │   ├── runtime-extractor.lua
 │   ├── locale-extractor.lua
-│   └── serialization.lua
-└── scenarios/
-    └── extraction-scenario/   # Minimal scenario for headless extraction
+│   ├── serialization.lua     # Data serialization logic
+│   └── validation.lua        # Data validation and quality checks
 ```
 
 ### Extraction Capabilities
@@ -108,11 +107,17 @@ factorio-mocks-generator/
 - Merge mod localization files into consolidated `.cfg` files per language
 - Preserve original INI format for maximum tool compatibility
 
-**Serialization Strategy**:
+**Data Validation**:
 
-- Use Serpent library for robust Lua table serialization
-- Maintain human-readable format for debugging and inspection
-- Include comprehensive metadata for validation and versioning
+- Generate Lua validation functions from Factorio's JSON API documentation
+- Validate extracted Lua table data for completeness and integrity using native Lua logic
+- Ensure data quality before publishing to consumers
+
+**Data Processing**:
+
+- Serialize extracted data in human-readable Lua format
+- Validate data completeness and integrity
+- Include metadata for version tracking and verification
 
 ## 3. `factorio-mocks-modpacks` (Modpack Artifact Management)
 
@@ -145,7 +150,7 @@ factorio-mocks-modpacks/
 - Direct interface to Factorio Mod Portal API endpoints
 - `/api/mods/{name}/full` for comprehensive mod metadata
 - `/api/mods` for searching and browsing mod collections
-- Native HTTP client implementation without external dependencies
+- Pure mod download manager using Lua HTTP libraries like [`lua-http`](https://daurnimator.github.io/lua-http/0.2/)
 
 **Dependency Resolution Engine**:
 
@@ -168,7 +173,8 @@ factorio-mocks-modpacks/
 
 Compared to `factorio-mod-updater`:
 
-- **Zero External Dependencies**: Pure Lua implementation eliminates Python dependency
+- **No System Dependencies**: Pure Lua implementation eliminates Python runtime requirement
+- **Lua Library Ecosystem**: Uses established Lua HTTP libraries instead of external system tools
 - **API-First Architecture**: Direct Mod Portal API integration
 - **ORAS-Native Workflow**: Designed specifically for container-based artifact distribution
 - **Enhanced Metadata**: Rich dependency trees and compatibility matrices in artifact metadata
@@ -178,6 +184,7 @@ Compared to `factorio-mod-updater`:
 
 **License**: No License (data only)
 **Purpose**: Centralized storage for all generated mock data
+**Main Branch**: `stable` (aligns with Factorio's stable/experimental release naming)
 
 ### Repository Structure
 
@@ -197,13 +204,9 @@ factorio-mocks-data/
 │   │   │   ├── en.cfg
 │   │   │   ├── fr.cfg
 │   │   │   └── [other-languages]/
-│   │   └── metadata.json
+│   │   └── metadata.json              # Basic metadata and checksums
 │   └── [other-modpacks]/
-├── schemas/
-│   ├── data-format.json       # JSON schema for validation
-│   └── metadata-format.json
-└── .github/workflows/
-    └── generate-data.yml
+└── README.md                  # Data repository documentation and usage
 ```
 
 ### ORAS Integration Strategy
@@ -212,6 +215,11 @@ factorio-mocks-data/
 
 - **Git Repository**: Latest version committed to Git for easy browsing and diff visualization
 - **ORAS Artifacts**: Historical versions stored as container artifacts in GitHub Container Registry
+
+**Branch Strategy**:
+
+- **Git Main Branch**: `stable` (aligns with Factorio's stable/experimental release naming familiar to modders)
+- **ORAS Stable Tags**: `stable` tag for consistent naming across distribution methods
 
 **Artifact Structure**:
 
@@ -227,10 +235,11 @@ ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-v1.2.3
     └── metadata.json        # Extraction metadata
 ```
 
-**Dual Tagging Strategy**:
+**Tagging Strategy**:
 
-- **Semantic Version**: `2024.12.15-v1.2.3` for predictable retrieval
+- **Semantic Version**: `2.0.66-2024.12.15-v1.2.3` for predictable retrieval
 - **Git Commit Hash**: `abc123f` for exact commit linking
+- **Stable Tag**: `stable` for latest data (both Git branch and ORAS tag)
 - **Bidirectional Linking**: Browse commits in Git, pull exact artifacts via ORAS
 
 **ORAS Attachment for Provenance**:
@@ -239,8 +248,8 @@ Mock data artifacts are attached to their source modpack artifacts using `oras a
 
 ```bash
 # Example: Link vanilla mock data to the modpack that generated it
-oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2024.12.15@sha256:abc123...
+oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
 ```
 
 **Provenance Benefits**:
@@ -250,20 +259,21 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
 - **Validation**: Verify data integrity by comparing against source modpack
 - **Debugging**: Trace data anomalies back to specific mod versions and conflicts
 
-### JSON Schema Validation
+### Data Organization Strategy
 
-**Automated Schema Generation**:
+**Pure Data Storage**:
 
-- Generate schemas from Factorio's official JSON API documentation
-- Prototype stage: `https://lua-api.factorio.com/latest/auxiliary/json-docs-prototype.html`
-- Runtime stage: `https://lua-api.factorio.com/latest/auxiliary/json-docs-runtime.html`
-- Transform API definitions into JSON Schema format for validation
+- No generation workflows - receives data artifacts from `factorio-mocks-generator` or later `factorio-mocks-modpacks`
+- Organized by modpack name and game stage (prototype, runtime, localization)
+- Git repository provides easy browsing and diff visualization of latest data
+- ORAS artifacts provide historical versioning and efficient distribution
 
-**Validation Integration**:
+**Data Quality Assurance**:
 
-- Automatic validation of extracted data against generated schemas
-- Schema versioning aligned with Factorio API versions
-- Comprehensive error reporting for validation failures
+- Data validated for completeness and integrity during generation
+- Metadata includes validation results and extraction information
+- Focus on data quality and format consistency
+- Lightweight metadata for consumer verification
 
 ## 5. `factorio-mocks-loader` (Generic Import Library)
 
@@ -280,7 +290,7 @@ factorio-mocks-loader/
 │   ├── cache-manager.lua      # Intelligent caching system
 │   ├── environment-setup.lua  # Test environment configuration
 │   ├── localization.lua       # Localization support
-│   └── validation.lua         # Data integrity checks
+│   └── integrity.lua          # Basic integrity checks (checksums, format validation)
 ├── examples/
 │   ├── basic-usage.lua
 │   ├── advanced-configuration.lua
@@ -359,7 +369,7 @@ mocks.setup_environment("pyanodons", {
     stage = "runtime",
     localization = {"en", "fr"},
     cache_dir = "test_cache",
-    version = "2024.11.15-v1.2.1"  -- Specific historical version
+    version = "2.0.66-2024.11.15-v1.2.1"  -- Specific historical version
 })
 
 -- Test runtime prototypes access
@@ -376,10 +386,11 @@ assert(localized == "Circuit avancé Py")
 ### Data Flow
 
 1. **Modpack Preparation**: `factorio-mocks-modpacks` creates ORAS artifacts with mod collections
-2. **Data Extraction**: `factorio-mocks-generator` extracts data from modpack environments
-3. **Data Storage**: `factorio-mocks-data` stores and distributes extracted data
-4. **Data Consumption**: `factorio-mocks-loader` fetches and provides data to consumer projects
-5. **Testing Integration**: `factorio-mocks` provides CI/CD actions and documentation
+2. **Data Generation & Validation**: `factorio-mocks-generator` extracts and validates data from modpack environments
+3. **Data Publishing**: Validated data artifacts with basic metadata published to `factorio-mocks-data`
+4. **Data Storage & Distribution**: `factorio-mocks-data` stores and distributes validated data artifacts
+5. **Data Consumption**: `factorio-mocks-loader` fetches data and performs basic integrity checks
+6. **Testing Integration**: `factorio-mocks` provides CI/CD actions and documentation
 
 ### Version Compatibility
 

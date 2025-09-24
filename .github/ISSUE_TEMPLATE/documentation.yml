@@ -1,7 +1,7 @@
 name: Documentation Issue
 description: Report problems with documentation or suggest documentation improvements
 title: "[DOCS] "
-labels: ["type: documentation", "needs-triage"]
+labels: ["type: documentation"]
 assignees: []
 body:
   - type: markdown

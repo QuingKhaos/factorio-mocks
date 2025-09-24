@@ -49,7 +49,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Mock APIs**: Hand-crafted mocks for runtime-only Factorio globals
 - **GitHub Actions**: Reusable actions for setting up mocks in CI environments
 - **Example Projects**: Reference implementations for different testing scenarios
-- **Luarocks Distribution**: Easy installation and dependency management
+- **LuaRocks Distribution**: Easy installation and dependency management
 
 ### 2. `factorio-mocks-generator` (Data Extraction)
 
@@ -150,7 +150,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Stage Separation**: Clear separation between prototype and runtime data
 - **Language Support**: Localization data for all supported languages
 - **Metadata Rich**: Comprehensive metadata for each configuration
-- **Validation**: JSON schemas for data format validation
+- **Validation**: Lua validation functions generated from Factorio API documentation
 
 ### 5. `factorio-mocks-loader` (Generic Import Library)
 
@@ -170,7 +170,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 - **Flexible Configuration**: Extensive customization options
 - **Intelligent Caching**: Automatic staleness detection and updates
 - **Multiple Sources**: Support Git repositories and ORAS artifacts
-- **Luarocks Integration**: Easy installation and dependency management
+- **LuaRocks Integration**: Easy installation and dependency management
 
 ## ORAS Integration Architecture
 
@@ -199,8 +199,8 @@ a complete solution for those who want comprehensive testing infrastructure.
 **Dual Tagging Approach**:
 
 ```bash
-# Date-based semantic version
-ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3
+# Date-based semantic version with Factorio version
+ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3
 
 # Git commit hash
 ghcr.io/quingkhaos/factorio-mocks-data/vanilla:abc123f
@@ -212,8 +212,8 @@ The `oras attach` command creates explicit relationships between artifacts, enab
 
 ```bash
 # Link mock data artifact to the exact modpack digest that generated it
-oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2024.12.15@sha256:abc123...
+oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
 ```
 
 **Artifact Relationship Benefits**:
@@ -237,7 +237,7 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
 
 1. **Modpack Preparation**: `factorio-mocks-modpacks` resolves latest compatible mod versions and creates ORAS artifacts
 2. **Environment Setup**: GitHub Actions pulls modpack artifacts and sets up extraction environment
-3. **Data Extraction**: `factorio-mocks-generator` runs in containerized Factorio instance
+3. **Data Extraction**: `factorio-mocks-generator` runs in headless Factorio instance
 4. **Data Processing**: Extract, validate, and format all exportable globals and localization
 5. **Distribution**: Update Git repository and create ORAS artifacts with dual tagging
 6. **Artifact Linking**: Use `oras attach` to link mock data artifacts to their source modpack digest
@@ -252,7 +252,7 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2024.12.15-v1.2.3 \
 
 ### Consumer Integration Workflow
 
-1. **Installation**: Install `factorio-mocks-loader` via Luarocks
+1. **Installation**: Install `factorio-mocks-loader` via LuaRocks
 2. **Configuration**: Specify modpack, version, and data source preferences
 3. **Environment Setup**: Loader fetches data and sets up global environment
 4. **Testing**: Consumer code runs with complete Factorio API mocks available
