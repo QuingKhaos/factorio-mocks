@@ -269,10 +269,3 @@ releases, breaking changes, community milestones, and progress updates.
 - **Cross-Repository Labels**: Use `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
   for proper routing
 - **Planning Synchronization**: Changes to planning documents should be reflected across ecosystem documentation
-
-### External References
-
-- **[Factorio Mod Portal API](https://wiki.factorio.com/Mod_portal_API)** - Official API for mod discovery and metadata
-- **[ORAS Specification](https://oras.land/)** - Container-based artifact distribution technology
-- **[GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)**
-  \- Artifact hosting and distribution platform

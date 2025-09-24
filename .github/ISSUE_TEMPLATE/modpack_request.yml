@@ -1,0 +1,77 @@
+name: Modpack Request
+description: Request a new modpack configuration to be added to the ecosystem
+title: "[MODPACK]: "
+labels: ["type: modpack-request", "ecosystem: modpacks"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for requesting a modpack configuration! Modpack configurations are curated by maintainers to ensure quality and community value.
+
+        Please provide detailed information about the modpack you'd like to see included in the Factorio Mocks ecosystem.
+
+  - type: input
+    id: modpack-name
+    attributes:
+      label: Modpack Name
+      description: What is the name of this modpack?
+      placeholder: e.g., "Seablock", "Pyanodons"
+    validations:
+      required: true
+
+  - type: textarea
+    id: modpack-purpose
+    attributes:
+      label: Modpack Purpose and Description
+      description: What is the purpose of this modpack?
+      placeholder: Describe the modpack's goals, why should it be included, and what makes it unique
+    validations:
+      required: true
+
+  - type: textarea
+    id: community-relevance
+    attributes:
+      label: Community Relevance
+      description: How widely is this modpack used in the Factorio community?
+      placeholder: |
+        - Is this modpack popular on Reddit, Discord, or forums?
+        - Are there active communities or content creators using it?
+        - How many downloads/players does it have?
+        - Why would this be valuable for mod testing?
+    validations:
+      required: true
+
+  - type: textarea
+    id: key-mods
+    attributes:
+      label: Key Mods Included
+      description: List the main mods that define this modpack
+      placeholder: |
+        - mod-name-1
+        - mod-name-2
+        - etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: special-requirements
+    attributes:
+      label: Special Configuration Requirements
+      description: Are there any special mod settings to change?
+      placeholder: |
+        - Custom mod settings that differ from defaults
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acknowledgments
+    attributes:
+      label: Acknowledgments
+      description: Please confirm you understand the modpack curation process
+      options:
+        - label: I understand that modpack configurations are curated by maintainers for quality and community value
+          required: true
+        - label: I understand that not all requested modpacks may be included in the ecosystem
+          required: true
+        - label: I have checked that this modpack is not already included in the ecosystem
+          required: true

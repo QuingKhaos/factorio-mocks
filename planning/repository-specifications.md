@@ -130,14 +130,14 @@ factorio-mocks-generator/
 
 ```bash
 factorio-mocks-modpacks/
-├── configs/
+├── modpacks/
 │   ├── vanilla/
-│   │   ├── mod-list.json
-│   │   └── mod-settings.dat
+│   │   ├── modpack.json        # Semantic modpack definition with metadata and dependencies
+│   │   └── mod-settings.dat    # Binary mod settings (optional)
 │   ├── spaceage/
 │   ├── krastorio2/
 │   └── [other-modpacks]/
-├── scripts/
+├── src/
 │   ├── mod-manager.lua         # Mod portal API client
 │   ├── build-artifacts.lua     # ORAS artifact creation
 │   └── validate-modpack.lua    # Configuration validation
@@ -192,7 +192,7 @@ Compared to `factorio-mod-updater`:
 
 ```bash
 factorio-mocks-data/
-├── configurations/
+├── modpacks/
 │   ├── vanilla/
 │   │   ├── prototype/
 │   │   │   ├── data-raw.lua
@@ -227,19 +227,19 @@ factorio-mocks-data/
 
 ```bash
 # Mock data artifacts
-ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-v1.2.3
+ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66
 ├── config.json              # Artifact metadata
 ├── manifest.json            # Layer manifest
 └── blobs/
     ├── prototype/           # Prototype stage data
     ├── runtime/             # Runtime stage data
-    ├── localization/        # Localization files
+    ├── locale/              # Localization files
     └── metadata.json        # Extraction metadata
 ```
 
 **Tagging Strategy**:
 
-- **Semantic Version**: `2.0.66-2024.12.15-v1.2.3` for predictable retrieval
+- **Date-based Version**: `2.0.66-2024.12.15` for predictable retrieval
 - **Git Commit Hash**: `abc123f` for exact commit linking
 - **Stable Tag**: `stable` for latest data (both Git branch and ORAS tag)
 - **Bidirectional Linking**: Browse commits in Git, pull exact artifacts via ORAS
@@ -250,8 +250,8 @@ Mock data artifacts are attached to their source modpack artifacts using `oras a
 
 ```bash
 # Example: Link vanilla mock data to the modpack that generated it
-oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
+oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15 \
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66@sha256:abc123...
 ```
 
 **Provenance Benefits**:
@@ -370,7 +370,7 @@ mocks.setup_environment("pyanodons", {
     stage = "runtime",
     localization = {"en", "fr"},
     cache_dir = "test_cache",
-    version = "2.0.66-2024.11.15-v1.2.1"  -- Specific historical version
+    version = "2.0.66-2024.11.15"  -- Specific historical version
 })
 
 -- Test runtime prototypes access

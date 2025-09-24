@@ -111,7 +111,7 @@ a complete solution for those who want comprehensive testing infrastructure.
 
 **Versioning Strategy**:
 
-- **Factorio Version Pinning**: Pin to specific Factorio release (e.g., `2.0.15`) for stability
+- **Factorio Version Pinning**: Pin to specific Factorio release (e.g., `2.0.66`) for stability
 - **Latest Mod Versions**: Always fetch latest compatible mod versions from Mod Portal
 - **Automated Updates**: Daily builds automatically capture latest mod ecosystem state
 - **Snapshot Immutability**: Each generated artifact represents exact mod versions at build time
@@ -195,8 +195,8 @@ a complete solution for those who want comprehensive testing infrastructure.
 **Dual Tagging Approach**:
 
 ```bash
-# Date-based semantic version with Factorio version
-ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3
+# Date-based version with Factorio version
+ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15
 
 # Git commit hash
 ghcr.io/quingkhaos/factorio-mocks-data/vanilla:abc123f
@@ -209,7 +209,7 @@ The `oras attach` command creates explicit relationships between artifacts, enab
 ```bash
 # Link mock data artifact to the exact modpack digest that generated it
 oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66@sha256:abc123...
 ```
 
 **Artifact Relationship Benefits**:

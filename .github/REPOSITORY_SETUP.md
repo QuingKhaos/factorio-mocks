@@ -633,16 +633,16 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 
 #### factorio-mocks-modpacks
 
-- [ ] Repository description: "Curated modpack configurations and automation for comprehensive Factorio mod testing
+- [x] Repository description: "Curated modpack configurations and automation for comprehensive Factorio mod testing
   scenarios"
-- [ ] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
-- [ ] Branch protection with appropriate status checks
-- [ ] Security settings and Dependabot
-- [ ] Essential labels for PR management (type, component, ecosystem)
-- [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
-- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection with appropriate status checks
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
   and all chatmodes
-- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-data
 
