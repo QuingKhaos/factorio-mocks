@@ -621,15 +621,15 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 
 #### factorio-mocks-generator
 
-- [ ] Repository description: "Factorio mod for extracting game data to generate comprehensive mocks for mod testing"
-- [ ] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
-- [ ] Branch protection with appropriate status checks
-- [ ] Security settings and Dependabot
-- [ ] Essential labels for PR management (type, component, ecosystem)
-- [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
-- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+- [x] Repository description: "Factorio mod for extracting game data to generate comprehensive mocks for mod testing"
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection with appropriate status checks
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
   and all chatmodes
-- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-modpacks
 

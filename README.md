@@ -1,5 +1,5 @@
 [![GitHub build status: Quality Assurance](https://img.shields.io/github/actions/workflow/status/QuingKhaos/factorio-mocks/qa.yml?branch=main&label=QA&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/actions?query=workflow%3A%22Quality+Assurance%22)
-[![GitHub issues: bugs](https://img.shields.io/github/issues/QuingKhaos/factorio-mocks/bug?label=Bug%20Reports&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)
+[![GitHub issues: bugs](https://img.shields.io/github/issues/QuingKhaos/factorio-mocks/type:%20bug?label=Bug%20Reports&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/issues?q=state%3Aopen%20label%3A%22type%3A%20bug%22)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/QuingKhaos/factorio-mocks?label=Pull%20Requests&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/pulls)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-support%20me-hotpink?logo=kofi&logoColor=white&style=for-the-badge)](https://ko-fi.com/quingkhaos)
 
@@ -109,7 +109,7 @@ developers to use only what they need while providing a complete solution for th
 local mocks = require("factorio-mocks-loader")
 
 -- Set up vanilla environment for testing
-mocks.setup_environment("vanilla", {
+mocks.setup("vanilla", {
     stage = "prototype",
     localization = "en"
 })

@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 
 [*.lua]
 continuation_indent = 2
-max_line_length = unset
+max_line_length = 120
 
 # additional settings https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/lua.template.editorconfig
 

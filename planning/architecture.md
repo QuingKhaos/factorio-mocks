@@ -85,7 +85,6 @@ a complete solution for those who want comprehensive testing infrastructure.
 
 **Metadata**:
 
-- Mod dependency trees
 - Game version information
 - Extraction timestamps
 - Configuration checksums
@@ -136,7 +135,6 @@ a complete solution for those who want comprehensive testing infrastructure.
 - Store generated mock data from diverse modpack configurations
 - Organize data by modpack, game stage, and language
 - Provide both Git and ORAS distribution strategies
-- Maintain comprehensive metadata for each configuration
 
 **Distribution Strategy**:
 
@@ -149,8 +147,6 @@ a complete solution for those who want comprehensive testing infrastructure.
 
 - **Stage Separation**: Clear separation between prototype and runtime data
 - **Language Support**: Localization data for all supported languages
-- **Metadata Rich**: Comprehensive metadata for each configuration
-- **Validation**: Lua validation functions generated from Factorio API documentation
 
 ### 5. `factorio-mocks-loader` (Generic Import Library)
 

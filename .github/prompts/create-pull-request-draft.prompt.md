@@ -3,6 +3,9 @@ mode: 'agent'
 description: 'Create an pull request draft document for for the current branch.'
 tools: ['createFile', 'createDirectory', 'editFiles', 'search', 'terminalSelection', 'terminalLastCommand', 'runTasks', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions']
 ---
+
+<!-- Repository: factorio-mocks -->
+
 # Create Pull Request Draft
 
 Create a pull request draft for the current branch using the repositories pull request template like we would create a

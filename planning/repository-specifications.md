@@ -76,15 +76,17 @@ Complex localization support with complete handling of all LocalisedString union
 
 ```bash
 factorio-mocks-generator/
-├── info.json                 # Factorio mod metadata
-├── data.lua                  # Prototype stage extraction
-├── control.lua               # Runtime stage extraction
-├── src/
-│   ├── prototype-extractor.lua
-│   ├── runtime-extractor.lua
-│   ├── locale-extractor.lua
-│   ├── serialization.lua     # Data serialization logic
+├── mod/                      # Factorio mod files (runs in Factorio)
+│   ├── info.json             # Factorio mod metadata
+│   ├── prototype-extractor.lua  # Prototype extraction logic
+│   ├── runtime-extractor.lua    # Runtime extraction logic
+│   ├── serialization.lua        # Data serialization logic
+├── src/                      # Standalone scripts (run outside Factorio)
+│   ├── locale-extractor.lua  # Extract .cfg files from mod ZIP archives
 │   └── validation.lua        # Data validation and quality checks
+├── bin/                      # Main orchestration scripts
+│   └── generator.lua         # Main generator orchestration
+└── factorio-mocks-generator-dev-1.rockspec
 ```
 
 ### Extraction Capabilities
@@ -93,7 +95,7 @@ factorio-mocks-generator/
 
 - `data.raw` - Complete prototype definitions with all categories
 - `mods` - Active mod list with exact versions
-- `settings` - Startup settings values and metadata
+- `settings` - Startup settings values
 - `feature_flags` - DLC and experimental feature availability
 
 **Runtime Stage Globals**:
@@ -117,7 +119,7 @@ factorio-mocks-generator/
 
 - Serialize extracted data in human-readable Lua format
 - Validate data completeness and integrity
-- Include metadata for version tracking and verification
+- Include metadata for integrity checks
 
 ## 3. `factorio-mocks-modpacks` (Modpack Artifact Management)
 
@@ -200,7 +202,7 @@ factorio-mocks-data/
 │   │   ├── runtime/
 │   │   │   ├── prototypes.lua
 │   │   │   └── settings.lua
-│   │   ├── localization/
+│   │   ├── locale/
 │   │   │   ├── en.cfg
 │   │   │   ├── fr.cfg
 │   │   │   └── [other-languages]/
@@ -271,7 +273,6 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.
 **Data Quality Assurance**:
 
 - Data validated for completeness and integrity during generation
-- Metadata includes validation results and extraction information
 - Focus on data quality and format consistency
 - Lightweight metadata for consumer verification
 
