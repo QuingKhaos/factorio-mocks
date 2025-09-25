@@ -1,7 +1,8 @@
-<!-- markdownlint-disable MD041 -->
+﻿<!-- markdownlint-disable MD041 -->
 
 <!--
 Thank you for contributing to the Factorio Mocks Ecosystem!
+This repository serves as the central planning and coordination hub.
 Please fill out this template to help us review your changes effectively.
 -->
 
@@ -15,13 +16,10 @@ Please fill out this template to help us review your changes effectively.
 
 <!-- Please check the boxes that apply to your PR -->
 
-- [ ] 🐛 Bug fix (non-breaking change that fixes an issue)
-- [ ] ✨ New feature (non-breaking change that adds functionality)
-- [ ] 💥 Breaking change (fix or feature that changes existing API)
-- [ ] 📚 Documentation update (changes to docs, planning, or comments)
-- [ ] 🧹 Code cleanup (refactoring, formatting, removing dead code)
-- [ ] 🔧 Configuration change (CI/CD, build tools, dependencies)
+- [ ] 📚 Documentation update (changes to planning docs, README, or guides)
+- [ ] 🔧 Configuration change (GitHub Actions, repository settings, templates)
 - [ ] 🏗️ Architecture change (affects ecosystem design or structure)
+- [ ] 🧹 Repository maintenance (cleanup, organization, templates)
 
 ### Related Issues
 
@@ -45,108 +43,26 @@ Please fill out this template to help us review your changes effectively.
 
 <!-- Highlight important files and explain what changed in each -->
 
-- `path/to/file.ext`: Brief description of changes
-- `path/to/another/file.ext`: Brief description of changes
-
 ## Quality Checklist
 
-### Code Quality
+### Documentation Quality
 
-- [ ] My code follows the project's coding standards and style guidelines
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code where necessary, particularly in hard-to-understand areas
-- [ ] My changes generate no new warnings or errors
-- [ ] Any dependent changes have been merged and published
+- [ ] My changes follow the markdown writing standards (`.markdownlint.json`)
+- [ ] I have performed a self-review of my documentation
+- [ ] All markdown files pass linting validation
+- [ ] Links are functional and point to appropriate resources
 
-### Testing
+### Planning and Architecture
 
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] I have tested this change in a realistic scenario
-- [ ] Any new configuration has been validated
-
-### Documentation
-
-- [ ] I have updated relevant documentation (README, planning docs, API docs)
-- [ ] I have updated or added comments for any public APIs or complex logic
-- [ ] Any new features are properly documented for users
-- [ ] Architecture decisions are documented if this affects ecosystem design
-
-### Architectural Decisions
-
-<!-- Only fill this section if your PR involves architectural changes -->
-
-- [ ] This change aligns with existing architectural decisions (ADRs)
+- [ ] Planning documents are accurate and up-to-date
+- [ ] Changes align with existing architectural decisions (ADRs)
 - [ ] I have created or updated an ADR if this introduces significant architectural changes
-- [ ] I have considered the impact on other repositories in the ecosystem
-- [ ] Breaking changes are clearly documented with migration guidance
-
-### Community Impact
-
-- [ ] I have considered how this change affects existing users
-- [ ] Breaking changes include clear migration paths
-- [ ] New features include usage examples or tutorials
-- [ ] Changes that affect contributors are documented in CONTRIBUTING.md
-
-## Testing Details
-
-### Test Environment
-
-<!-- Describe how you tested these changes -->
-
-- **Operating System**: [e.g., Windows 11, Ubuntu 24.04]
-- **Factorio Version**: [if applicable, e.g., 2.0.66]
-- **Test Scenario**: [brief description]
-
-### Test Results
-
-<!-- Describe the results of your testing -->
-
-- [ ] All existing tests pass
-- [ ] New functionality works as expected
-- [ ] No performance regressions observed
-- [ ] Documentation renders correctly
-
-### Manual Testing Steps
-
-<!-- If manual testing was performed, list the steps -->
-
-1. Step 1
-2. Step 2
-3. Step 3
-
-## Backward Compatibility
-
-### Breaking Changes
-
-<!-- If this introduces breaking changes, describe them -->
-
-- [ ] This PR introduces breaking changes
-- [ ] Migration guide has been provided
-- [ ] Deprecation notices have been added where appropriate
-- [ ] Version bump strategy has been considered
-
-### Migration Guide
-
-<!-- If breaking changes exist, provide migration instructions -->
-
-```text
-Example migration steps or code changes needed
-```
-
-## Screenshots/Examples
-
-<!-- If applicable, add screenshots or code examples showing the changes -->
 
 ## Additional Notes
 
-### Implementation Notes
+### Planning Context
 
-<!-- Any additional context about implementation decisions -->
-
-### Future Considerations
-
-<!-- Any follow-up work or considerations for future development -->
+<!-- Any additional context about planning decisions -->
 
 ### Questions for Reviewers
 
@@ -160,14 +76,7 @@ Example migration steps or code changes needed
 
 <!-- Maintainers: Check these items during review -->
 
-- [ ] Code quality meets project standards
-- [ ] Tests are comprehensive and pass
-- [ ] Documentation is complete and accurate
-- [ ] Breaking changes are properly handled
+- [ ] Documentation quality meets project standards
+- [ ] Planning accuracy verified
 - [ ] Architectural decisions are sound
-- [ ] Community impact has been considered
-- [ ] CI/CD checks pass
-
-### Deployment Notes
-
-<!-- Maintainers: Any special deployment considerations -->
+- [ ] QA workflow passes
