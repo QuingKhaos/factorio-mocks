@@ -35,9 +35,9 @@ onboarding processes.*
 **Deliverables**:
 
 - [x] Complete planning documentation in `factorio-mocks` repository
-- [ ] Create all five repositories with proper structure and licenses
-- [ ] Set up GitHub Actions workflows for basic CI/CD
-- [ ] Establish community contribution guidelines and RFC process
+- [x] Create all five repositories with proper structure and licenses
+- [x] Set up GitHub Actions workflows for basic CI/CD
+- [x] Establish community contribution guidelines and RFC process
 
 **Success Criteria**:
 

@@ -47,7 +47,8 @@ $typeLabels = @(
     @{name="type: bug"; color="d73a4a"; description="Something isn't working"},
     @{name="type: feature"; color="a2eeef"; description="New feature or enhancement request"},
     @{name="type: documentation"; color="0075ca"; description="Improvements or additions to documentation"},
-    @{name="type: maintenance"; color="fef2c0"; description="Code cleanup, refactoring, or maintenance tasks"}
+    @{name="type: maintenance"; color="fef2c0"; description="Code cleanup, refactoring, or maintenance tasks"},
+    @{name="type: modpack-request"; color="b60205"; description="Request for new modpack configuration to be added to ecosystem"}
 )
 
 Write-Host "  Type labels..." -ForegroundColor Cyan
@@ -144,9 +145,9 @@ Write-Host "You can view all labels at: https://github.com/QuingKhaos/factorio-m
 # Show summary
 Write-Host "`nSummary:" -ForegroundColor Yellow
 Write-Host "  - Phase tracking: Using GitHub Milestones" -ForegroundColor Cyan
-Write-Host "  - Type labels: 4" -ForegroundColor White
+Write-Host "  - Type labels: 5" -ForegroundColor White
 Write-Host "  - Component labels: 4" -ForegroundColor White
 Write-Host "  - Effort and flow labels: 5" -ForegroundColor White
 Write-Host "  - Special labels: 4" -ForegroundColor White
 Write-Host "  - Ecosystem labels: 4" -ForegroundColor White
-Write-Host "  - Total: 21 labels" -ForegroundColor Green
+Write-Host "  - Total: 22 labels" -ForegroundColor Green

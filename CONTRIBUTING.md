@@ -86,8 +86,10 @@ testing infrastructure for Factorio mod development, and we welcome contribution
 
    ```bash
    git push origin feat/your-feature-name
-   gh pr create --title "feat: add new feature description" --body "Detailed description"
    ```
+
+   Then create a pull request through the GitHub web interface to ensure the PR template is properly applied:
+   `https://github.com/QuingKhaos/factorio-mocks/compare/main...your-branch-name`
 
    **Important**: Use conventional commit format in PR titles as they become the squash merge commit message.
 
@@ -337,11 +339,13 @@ gh repo fork QuingKhaos/factorio-mocks --clone
 git checkout -b feat/my-feature
 
 # Run quality checks
-jsonlint .markdownlint.json
-markdownlint --config .markdownlint.json **/*.md
+markdownlint --config .markdownlint.json --dot **/*.md
 
-# Create pull request (use conventional commit format in title)
-gh pr create --title "feat(scope): add my new feature" --body "Description"
+# Push changes
+git push origin feat/my-feature
+
+# Then create PR via web interface at:
+# https://github.com/QuingKhaos/factorio-mocks/compare/main...your-branch-name
 ```
 
 ### Key Files to Review

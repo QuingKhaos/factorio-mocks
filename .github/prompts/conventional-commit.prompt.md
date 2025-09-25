@@ -3,11 +3,14 @@ description: 'Prompt and workflow for generating conventional commit messages us
 tools: ['runInTerminal', 'getTerminalOutput']
 ---
 
+<!-- Repository: factorio-mocks -->
+
 ### Instructions
 
 ```xml
-	<description>This file contains a prompt template for generating conventional commit messages. It provides instructions, examples, and formatting guidelines to help users write standardized, descriptive commit messages in accordance with the Conventional Commits specification.</description>
-	<note>
+	<description>This file contains a prompt template for generating conventional commit messages for the factorio-mocks repository (central hub). It provides instructions, examples, and formatting guidelines to help users write standardized, descriptive commit messages in accordance with the Conventional Commits specification.</description>
+	<repository>factorio-mocks - Central hub repository for documentation, planning, and coordination</repository>
+	<note>This prompt is specifically designed for the factorio-mocks central hub repository. For other ecosystem repositories, use their respective prompt files.</note>
 ```
 
 ### Workflow
@@ -49,6 +52,14 @@ git commit -m "type(scope): description"
 	<example>chore: update dependencies</example>
 	<example>feat!: send email on registration (BREAKING CHANGE: email service required)</example>
 </examples>
+
+<hub-specific-examples>
+	<example>docs(planning): update architecture decisions</example>
+	<example>feat(templates): add generator-specific issue template</example>
+	<example>chore: sync labels across ecosystem repositories</example>
+	<example>docs: improve ecosystem getting started guide</example>
+	<example>feat(coordination): add new milestone strategy</example>
+</hub-specific-examples>
 ```
 
 ### Validation
@@ -83,7 +94,15 @@ git commit -m "type(scope): description"
 
 ```xml
 <final-step>
-	<cmd>git commit -m "type(scope): description"</cmd>
-	<note>Replace with your constructed message. Include body, footer, and co-authored-by if needed.</note>
+  <cmd>git commit -m "type(scope): description"</cmd>
+  <note>Replace with your constructed message. Include body, footer, and co-authored-by if needed.</note>
+  <powershell-escaping>
+    For PowerShell users, follow these quote escaping rules:
+    - Always use double quotes around the entire commit message
+    - Always use single quotes for any quoted text within the message
+    - This applies to both single-line and multi-line messages
+    - Single-line example: git commit -m "feat(scope): add 'quoted feature'"
+    - Multi-line example: git commit -m "feat(scope): add feature with 'quoted text'[newline][newline]Body text here.[newline][newline]Co-authored-by: GitHub Copilot &lt;copilot@github.com&gt;"
+  </powershell-escaping>
 </final-step>
 ```

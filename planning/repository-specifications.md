@@ -76,15 +76,17 @@ Complex localization support with complete handling of all LocalisedString union
 
 ```bash
 factorio-mocks-generator/
-├── info.json                 # Factorio mod metadata
-├── data.lua                  # Prototype stage extraction
-├── control.lua               # Runtime stage extraction
-├── src/
-│   ├── prototype-extractor.lua
-│   ├── runtime-extractor.lua
-│   ├── locale-extractor.lua
-│   ├── serialization.lua     # Data serialization logic
+├── mod/                      # Factorio mod files (runs in Factorio)
+│   ├── info.json             # Factorio mod metadata
+│   ├── prototype-extractor.lua  # Prototype extraction logic
+│   ├── runtime-extractor.lua    # Runtime extraction logic
+│   ├── serialization.lua        # Data serialization logic
+├── src/                      # Standalone scripts (run outside Factorio)
+│   ├── locale-extractor.lua  # Extract .cfg files from mod ZIP archives
 │   └── validation.lua        # Data validation and quality checks
+├── bin/                      # Main orchestration scripts
+│   └── generator.lua         # Main generator orchestration
+└── factorio-mocks-generator-dev-1.rockspec
 ```
 
 ### Extraction Capabilities
@@ -93,7 +95,7 @@ factorio-mocks-generator/
 
 - `data.raw` - Complete prototype definitions with all categories
 - `mods` - Active mod list with exact versions
-- `settings` - Startup settings values and metadata
+- `settings` - Startup settings values
 - `feature_flags` - DLC and experimental feature availability
 
 **Runtime Stage Globals**:
@@ -117,7 +119,7 @@ factorio-mocks-generator/
 
 - Serialize extracted data in human-readable Lua format
 - Validate data completeness and integrity
-- Include metadata for version tracking and verification
+- Include metadata for integrity checks
 
 ## 3. `factorio-mocks-modpacks` (Modpack Artifact Management)
 
@@ -128,14 +130,14 @@ factorio-mocks-generator/
 
 ```bash
 factorio-mocks-modpacks/
-├── configs/
+├── modpacks/
 │   ├── vanilla/
-│   │   ├── mod-list.json
-│   │   └── mod-settings.dat
+│   │   ├── modpack.json        # Semantic modpack definition with metadata and dependencies
+│   │   └── mod-settings.dat    # Binary mod settings (optional)
 │   ├── spaceage/
 │   ├── krastorio2/
 │   └── [other-modpacks]/
-├── scripts/
+├── src/
 │   ├── mod-manager.lua         # Mod portal API client
 │   ├── build-artifacts.lua     # ORAS artifact creation
 │   └── validate-modpack.lua    # Configuration validation
@@ -190,7 +192,7 @@ Compared to `factorio-mod-updater`:
 
 ```bash
 factorio-mocks-data/
-├── configurations/
+├── modpacks/
 │   ├── vanilla/
 │   │   ├── prototype/
 │   │   │   ├── data-raw.lua
@@ -200,10 +202,10 @@ factorio-mocks-data/
 │   │   ├── runtime/
 │   │   │   ├── prototypes.lua
 │   │   │   └── settings.lua
-│   │   ├── localization/
+│   │   ├── locale/
 │   │   │   ├── en.cfg
 │   │   │   ├── fr.cfg
-│   │   │   └── [other-languages]/
+│   │   │   └── [other-languages]
 │   │   └── metadata.json              # Basic metadata and checksums
 │   └── [other-modpacks]/
 └── README.md                  # Data repository documentation and usage
@@ -225,19 +227,19 @@ factorio-mocks-data/
 
 ```bash
 # Mock data artifacts
-ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-v1.2.3
+ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66
 ├── config.json              # Artifact metadata
 ├── manifest.json            # Layer manifest
 └── blobs/
     ├── prototype/           # Prototype stage data
     ├── runtime/             # Runtime stage data
-    ├── localization/        # Localization files
+    ├── locale/              # Localization files
     └── metadata.json        # Extraction metadata
 ```
 
 **Tagging Strategy**:
 
-- **Semantic Version**: `2.0.66-2024.12.15-v1.2.3` for predictable retrieval
+- **Date-based Version**: `2.0.66-2024.12.15` for predictable retrieval
 - **Git Commit Hash**: `abc123f` for exact commit linking
 - **Stable Tag**: `stable` for latest data (both Git branch and ORAS tag)
 - **Bidirectional Linking**: Browse commits in Git, pull exact artifacts via ORAS
@@ -248,8 +250,8 @@ Mock data artifacts are attached to their source modpack artifacts using `oras a
 
 ```bash
 # Example: Link vanilla mock data to the modpack that generated it
-oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.2.3 \
-  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66-2024.12.15@sha256:abc123...
+oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15 \
+  --subject ghcr.io/quingkhaos/factorio-mocks-modpacks/vanilla:2.0.66@sha256:abc123...
 ```
 
 **Provenance Benefits**:
@@ -271,7 +273,6 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15-v1.
 **Data Quality Assurance**:
 
 - Data validated for completeness and integrity during generation
-- Metadata includes validation results and extraction information
 - Focus on data quality and format consistency
 - Lightweight metadata for consumer verification
 
@@ -297,11 +298,8 @@ factorio-mocks-loader/
 │   └── localization-example.lua
 ├── spec/
 │   └── [test-files]/
-├── rockspecs/
-│   └── factorio-mocks-loader*.rockspec
+├── factorio-mocks-loader-dev-1.rockspec
 └── docs/
-    ├── api-reference.md
-    └── configuration.md
 ```
 
 ### Key Features
@@ -309,13 +307,8 @@ factorio-mocks-loader/
 **Simple API**:
 
 ```lua
-local mocks = require("factorio-mocks-loader")
-
 -- One-line setup for most use cases
-mocks.setup_environment("vanilla", {
-    stage = "prototype",
-    localization = "en"
-})
+require("factorio-mocks-loader").setup("space-exploration", "prototype")
 ```
 
 **Flexible Configuration**:
@@ -338,48 +331,6 @@ mocks.setup_environment("vanilla", {
 - **ORAS Artifacts**: Pull from OCI registries with layer caching
 - **Local Files**: Support for offline development and testing
 - **Hybrid Mode**: Automatic fallback between sources
-
-### Consumer Integration Examples
-
-**Basic Mod Testing**:
-
-```lua
--- Install: luarocks install factorio-mocks-loader
-local mocks = require("factorio-mocks-loader")
-
--- Set up vanilla environment
-mocks.setup_environment("vanilla", {
-    stage = "prototype",
-    localization = "en"
-})
-
--- Now data.raw, mods, settings, feature_flags are available
-assert(data.raw.recipe["iron-plate"])
-assert(mods["base"] == "2.0.0")
-assert(settings.startup["some-setting"])
-```
-
-**Advanced Integration Testing**:
-
-```lua
-local mocks = require("factorio-mocks-loader")
-
--- Test with complex modpack
-mocks.setup_environment("pyanodons", {
-    stage = "runtime",
-    localization = {"en", "fr"},
-    cache_dir = "test_cache",
-    version = "2.0.66-2024.11.15-v1.2.1"  -- Specific historical version
-})
-
--- Test runtime prototypes access
-local recipes = prototypes.recipe
-assert(recipes["py-advanced-circuit"])
-
--- Test localization
-local localized = mocks.localize("recipe-name.py-advanced-circuit", "fr")
-assert(localized == "Circuit avancé Py")
-```
 
 ## Cross-Repository Integration
 

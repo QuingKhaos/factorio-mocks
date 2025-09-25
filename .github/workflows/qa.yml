@@ -64,13 +64,7 @@ jobs:
             fi
           }
 
-          # Validate configuration files
-          validate_json ".markdownlint.json"
-          validate_json ".vscode/settings.json"
-          validate_json ".vscode/tasks.json"
-          validate_json ".vscode/launch.json"
-
-          # Find and validate any other JSON files
+          # Find and validate all JSON files
           echo "🔍 Checking for additional JSON files..."
           find . -name "*.json" -not -path "./.git/*" | while read -r file; do
             validate_json "$file"
@@ -96,11 +90,11 @@ jobs:
             fi
           }
 
-          # Lint configuration files
-          lint_json ".markdownlint.json"
-          lint_json ".vscode/settings.json"
-          lint_json ".vscode/tasks.json"
-          lint_json ".vscode/launch.json"
+          # Find and lint all JSON files
+          echo "🔍 Finding and linting all JSON files..."
+          find . -name "*.json" -not -path "./.git/*" | while read -r file; do
+            lint_json "$file"
+          done
 
           echo "✅ JSON linting completed"
 

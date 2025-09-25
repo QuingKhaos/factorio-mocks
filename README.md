@@ -1,5 +1,5 @@
 [![GitHub build status: Quality Assurance](https://img.shields.io/github/actions/workflow/status/QuingKhaos/factorio-mocks/qa.yml?branch=main&label=QA&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/actions?query=workflow%3A%22Quality+Assurance%22)
-[![GitHub issues: bugs](https://img.shields.io/github/issues/QuingKhaos/factorio-mocks/bug?label=Bug%20Reports&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)
+[![GitHub issues: bugs](https://img.shields.io/github/issues/QuingKhaos/factorio-mocks/type:%20bug?label=Bug%20Reports&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/issues?q=state%3Aopen%20label%3A%22type%3A%20bug%22)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/QuingKhaos/factorio-mocks?label=Pull%20Requests&style=for-the-badge)](https://github.com/QuingKhaos/factorio-mocks/pulls)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-support%20me-hotpink?logo=kofi&logoColor=white&style=for-the-badge)](https://ko-fi.com/quingkhaos)
 
@@ -69,55 +69,6 @@ developers to use only what they need while providing a complete solution for th
    - Easy-to-use library for consuming mock data in any Lua project
    - On-demand data fetching with intelligent caching
    - Cross-platform compatibility (Windows, Linux, macOS)
-
-## Development Priorities
-
-### Phase 1: Foundation
-
-- [ ] Complete planning documentation and ecosystem repository setup
-- [ ] Create `factorio-mocks-generator` with automated prototype stage extraction
-- [ ] GitHub Actions workflow for headless Factorio testing and data extraction
-- [ ] Automated commit of extracted vanilla data to `factorio-mocks-data` repository
-- [ ] Create `factorio-mocks-loader` with git-based data loading and cross-platform support
-- [ ] End-to-end automated workflow validation and documentation
-
-### Phase 2: Modpack Support and Data Repository
-
-- [ ] Create `factorio-mocks-modpacks` with native Factorio Mod Portal API client
-- [ ] ORAS integration infrastructure with GitHub Container Registry
-- [ ] Multi-modpack data generation with daily builds and artifact distribution
-- [ ] Multi-modpack data management with discovery and request processes
-
-### Phase 3: Advanced Loader Functionality
-
-- [ ] Runtime stage extraction for prototypes and settings data
-- [ ] Comprehensive localization support with LocalisedString processing
-- [ ] Intelligent caching system with automatic staleness detection
-- [ ] GitHub Actions integration with reusable actions for CI/CD workflows
-
-### Phase 4: Production Readiness
-
-- [ ] Performance optimization and memory usage improvements for large datasets
-- [ ] Security review of authentication and comprehensive input validation
-- [ ] Comprehensive test coverage (90%+) and cross-repository integration testing
-- [ ] Complete documentation, migration guides, and official v1.0 release preparation
-
-## Quick Start (Planned)
-
-```lua
--- Install: luarocks install factorio-mocks-loader
-local mocks = require("factorio-mocks-loader")
-
--- Set up vanilla environment for testing
-mocks.setup_environment("vanilla", {
-    stage = "prototype",
-    localization = "en"
-})
-
--- Now data.raw, mods, settings, feature_flags are available
-assert(data.raw.recipe["iron-plate"])
-assert(mods["base"] == "2.0.0")
-```
 
 ## Documentation
 

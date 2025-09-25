@@ -3,8 +3,7 @@
 This document provides step-by-step instructions for setting up the GitHub repository infrastructure for the
 Factorio Mocks Ecosystem.
 
-**Current Status**: 🚧 **Setup in Progress** - This is the first repository (central hub) of the five-repository
-ecosystem currently being configured.
+**Current Status**: ✅ **Repository Setup Complete** - All five repositories established with comprehensive infrastructure.
 
 **Important Note**: The `factorio-mocks-data` repository uses `stable` as its main branch (aligns with Factorio's
 stable/experimental release naming familiar to modders). All other repositories use the standard `main` branch.
@@ -17,27 +16,68 @@ Navigate to **Settings > General** and configure:
 
 #### Repository Details
 
+Configure repository-specific settings based on the repository being created:
+
+##### factorio-mocks (Hub Repository)
+
 - **Description**: "Comprehensive testing infrastructure for Factorio mod development - Planning & coordination hub"
 - **Website**: Leave empty for now (can add documentation site later)
-- **Topics**: Add these tags for discoverability:
-  - `factorio`
-  - `factorio-mod`
-  - `testing`
-  - `mocking`
-  - `lua`
-  - `game-development`
-  - `testing-framework`
+
+##### factorio-mocks-generator (Data Extraction)
+
+- **Description**: "Factorio mod for extracting game data to generate comprehensive mocks for mod testing"
+- **Website**: Leave empty
+
+##### factorio-mocks-modpacks (Modpack Configurations)
+
+- **Description**: "Curated modpack configurations and automation for comprehensive Factorio mod testing scenarios"
+- **Website**: Leave empty
+
+##### factorio-mocks-data (Data Artifacts)
+
+- **Description**: "Generated mock data artifacts from Factorio installations for mod testing and development"
+- **Website**: Leave empty
+
+##### factorio-mocks-loader (Runtime Library)
+
+- **Description**: "Lua library for loading Factorio mock data in testing environments and development workflows"
+- **Website**: Leave empty
+
+##### Common Topics
+
+Add these topics to all repositories for discoverability:
+
+- `factorio`
+- `factorio-mod`
+- `testing`
+- `mocking`
+- `lua`
+- `game-development`
+- `testing-framework`
 
 #### Features
 
-- ✅ **Wikis**: Disabled (using documentation in repo instead)
-- ✅ **Issues**: Enabled
-- ✅ **Sponsorships**: Enabled (Ko-fi link already in README)
-- ✅ **Preserve this repository**: Enabled
-- ✅ **Projects**: Enabled
-- ✅ **Discussions**: Enabled
+Configure repository-specific features:
 
-#### Centralized Issue Tracking
+##### factorio-mocks (Hub Repository Only)
+
+- ❌ **Wikis**: Disabled (using documentation in repo instead)
+- ✅ **Issues**: Enabled (centralized issue tracking)
+- ✅ **Sponsorships**: Enabled (Ko-fi link in README)
+- ✅ **Preserve this repository**: Enabled
+- ✅ **Projects**: Enabled (ecosystem coordination)
+- ✅ **Discussions**: Enabled (community engagement)
+
+##### All Other Repositories (generator, modpacks, data, loader)
+
+- ❌ **Wikis**: Disabled (documentation in individual repos)
+- ❌ **Issues**: Disabled (centralized in hub repository)
+- ✅ **Sponsorships**: Enabled (Ko-fi link for ecosystem support)
+- ✅ **Preserve this repository**: Enabled
+- ✅ **Projects**: Enabled (required for cross-repository project automation)
+- ❌ **Discussions**: Disabled (centralized in hub)
+
+#### Centralized Issue Tracking with Cross-Repository Project Management
 
 **Important**: The `factorio-mocks` repository serves as the central hub for issue tracking across the entire ecosystem.
 Issues for all repositories should be filed here:
@@ -45,11 +85,14 @@ Issues for all repositories should be filed here:
 - **Issues enabled**: Only in `factorio-mocks` (this repository)
 - **Issues disabled**: In all other ecosystem repositories (`factorio-mocks-generator`, `factorio-mocks-modpacks`,
   `factorio-mocks-data`, `factorio-mocks-loader`)
+- **Projects enabled**: In ALL repositories (required for cross-repository project board automation)
 - **Component selection**: Issue templates include dropdown to specify which repository/component is affected
 - **Benefits**: Unified tracking, better coordination, simplified contributor workflow
 
-**Action Required**: When creating the other repositories, disable Issues in their repository settings to direct all
-issue traffic here.
+**Action Required**: When creating the other repositories:
+
+1. **Disable Issues** in their repository settings to direct all issue traffic here
+2. **Keep Projects enabled** to allow the central project board to automatically add PRs from those repositories
 
 #### Pull Requests
 
@@ -78,7 +121,8 @@ Navigate to **Settings > Branches** and add protection for the main branch:
   - ✅ **Require conversation resolution before merging**
 - ✅ **Require status checks to pass before merging**
   - ✅ **Require branches to be up to date before merging**
-  - **Required status checks**: Add `Documentation Quality and Linting` (from QA workflow)
+  - **Required status checks**: Add relevant workflow checks (e.g., `Documentation Quality and Linting` for
+    repositories with QA workflows, `CI/CD` for repositories with testing, etc.)
 - ❌ **Require signed commits**: Disabled (would require ALL commits in PRs to be signed, creating contributor barrier)
 - ✅ **Require linear history**: Enabled
 - ❌ **Allow force pushes**: Disabled
@@ -164,7 +208,7 @@ Navigate to **Settings > Actions > General**:
 
 ## Repository Labels Setup
 
-### Automated Label Setup
+### Hub Repository (factorio-mocks): Full Label Set
 
 Use the provided PowerShell script to automatically create all required labels and remove default GitHub labels:
 
@@ -190,9 +234,62 @@ PowerShell -ExecutionPolicy Bypass -File .\.github\scripts\setup-labels.ps1
 **Note**: The script requires GitHub CLI (`gh`) to be installed and authenticated. If you prefer manual setup,
 you can view the individual commands in the script file.
 
+### Other Repositories: Essential Labels for PR Management
+
+For repositories with centralized issue tracking, create only the essential labels needed for Pull Request management:
+
+#### Required Labels for All Other Repositories
+
+**Type Labels** (for PR categorization):
+
+- `type: bug` - Bug fixes and error corrections
+- `type: feature` - New functionality and enhancements
+- `type: documentation` - Documentation updates
+- `type: maintenance` - Dependency updates, refactoring, housekeeping
+
+**Component Labels** (repository-specific):
+
+- For `factorio-mocks-generator`: `component: extraction`, `component: validation`,
+  `component: distribution`, `component: ci-cd`
+- For `factorio-mocks-modpacks`: `component: modpacks`, `component: automation`,
+  `component: distribution`, `component: ci-cd`
+- For `factorio-mocks-data`: `component: ci-cd` (minimal - mostly automated commits)
+- For `factorio-mocks-loader`: `component: loader`, `component: ci-cd`
+
+**Ecosystem Labels** (for coordination):
+
+- Each repository gets its own ecosystem label (`ecosystem: generator`, `ecosystem: modpacks`, etc.)
+
+#### Automated Label Setup Scripts
+
+For easier setup, use the provided PowerShell scripts in each repository:
+
+```powershell
+PowerShell -ExecutionPolicy Bypass -File .\.github\scripts\setup-labels.ps1
+```
+
+**What the scripts do:**
+
+- **Create essential labels** specific to each repository's needs
+- **Remove default GitHub labels** that don't fit the workflow
+- **Provide detailed output** showing progress and final label counts
+- **Handle existing labels** by updating them if they already exist
+
+**Prerequisites:** GitHub CLI (`gh`) must be installed and authenticated
+
+**Benefits of Essential Labels**:
+
+- **Automated PR labeling** for Dependabot and workflows
+- **PR categorization** for easier review and coordination
+- **Ecosystem tracking** across repositories
+- **Workflow triggers** based on PR types and components
+
 ## Additional Configurations
 
-### 1. Discussions Setup
+### 1. Discussions Setup (Hub Repository Only)
+
+**Note**: Only configure Discussions in the `factorio-mocks` hub repository. Other repositories have Discussions
+disabled to centralize community interaction.
 
 Navigate to **Settings > Features** and enable **Discussions**, then:
 
@@ -216,7 +313,11 @@ Navigate to **Settings > Features** and enable **Discussions**, then:
 engagement. The **Polls** category can be particularly useful for gathering community input on architectural decisions
 or feature priorities.
 
-### 2. Project Board Setup
+### 2. Project Board Setup (Hub Repository Only)
+
+**Note**: While only the `factorio-mocks` hub repository will have an active project board, **all repositories must have
+Projects enabled** to allow cross-repository automation. The central project board in the hub can automatically add
+PRs from other repositories, but this requires Projects to be enabled in those target repositories.
 
 #### Initial Project Creation
 
@@ -291,15 +392,6 @@ This Kanban board tracks development progress across all five ecosystem reposito
 4. **Comment on issues** to ask questions or offer help
 5. **Reference ecosystem components** using the component labels for clarity
 
-## 🏗️ Current Phase: Foundation Setup (In Progress)
-
-We're actively working on establishing the foundation with these key deliverables:
-
-- ✅ Complete planning documentation and architectural decisions
-- 🔄 GitHub repository infrastructure setup (first repository - this one!)
-- ⏳ Create remaining four ecosystem repositories
-- ⏳ Basic project website and community onboarding
-
 ## 🎯 Milestone Integration
 
 Issues are organized by these major milestones:
@@ -324,11 +416,6 @@ This project follows a community-first development philosophy:
 - **Accessibility**: Multiple contribution levels supported with clear guidance
 - **Iteration**: Continuous feedback preferred over formal processes
 - **Documentation**: Everything documented to support contributor onboarding
-
----
-
-**Latest Update**: 🚧 **Active Development** - Setting up the first repository of five in the ecosystem. Foundation
-phase in progress with repository infrastructure being configured.
 ```
 
 ##### Access and Permissions
@@ -353,16 +440,29 @@ with custom fields:
 **GitHub Milestones handle phase tracking** rather than custom fields, providing better integration with GitHub's
 native project management features.
 
-#### Automation Rules
+#### Cross-Repository Automation Setup
 
-GitHub Projects provides limited automation capabilities. You can only modify the default workflow, not create custom ones:
+**GitHub Free Plan Limitation**: GitHub Free plan only allows **1 auto-add workflow** per project. Since we have a
+five-repository ecosystem, we'll use a hybrid approach:
 
-**Available Default Workflow Modifications**:
+1. **Hub repository** (`factorio-mocks`) - Use the built-in auto-add workflow for issues and PRs
+2. **Other repositories** - Use GitHub Actions to automatically add PRs to the project board
 
-1. **Auto-add to project**: Automatically add new issues/PRs from the repository to this project
+**Automation Strategy**:
+
+- **factorio-mocks**: Built-in GitHub Projects auto-add workflow
+- **All other repositories**: GitHub Action workflow that runs on PR open/reopen events
+
+#### Automation Rules Configuration
+
+GitHub Projects provides these automation capabilities for each repository workflow:
+
+**Available Workflow Automations**:
+
+1. **Auto-add to project**: Automatically add new issues/PRs from each target repository
    - Configure to add **both issues and pull requests**
-   - Essential for ensuring nothing falls through the cracks
-   - Both issues and PRs will use the same default status (typically "New")
+   - Each repository needs its own workflow (5 total workflows)
+   - All items start in "New" status for triage
 
 2. **Item added to project**: Configure what happens when items are added
    - Set default status (applies to both issues and PRs equally)
@@ -438,4 +538,129 @@ manual identification within existing views.
 - **Community transparency**: Different stakeholders can use the view that works best for them
 - **Comprehensive coverage**: Board shows workflow, tables show filtered subsets
 
-This completes the core GitHub repository setup for the Factorio Mocks Ecosystem!
+## Cross-Repository Automation Setup
+
+**Important**: Due to GitHub Free plan limitations (only 1 auto-add workflow allowed), we use a hybrid approach to
+automatically add items from all repositories to the central project board.
+
+### Hub Repository Setup (factorio-mocks)
+
+1. **Navigate to the project board** in the `factorio-mocks` repository
+2. **Click the menu icon** (⋯) in the top-right corner of the project
+3. **Select "Workflows"** from the menu
+4. **Configure the "Auto-add to project" workflow**:
+   - Click "Edit" on the existing workflow
+   - Under "Filters", select the `factorio-mocks` repository
+   - Set filter to add both issues and PRs: `is:issue,pr`
+   - Click "Save and turn on workflow"
+
+### Other Repositories Setup (GitHub Actions)
+
+For `factorio-mocks-generator`, `factorio-mocks-modpacks`, `factorio-mocks-data`, and `factorio-mocks-loader`,
+create a GitHub Action workflow to automatically add PRs to the project board.
+
+**Complete Setup Instructions**: See `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md` for detailed step-by-step
+instructions including:
+
+- Personal access token creation (fine-grained vs classic tokens)
+- Workflow file template with your project URL
+- Repository secret configuration
+- Testing and troubleshooting guidance
+
+### Expected Automation Results
+
+After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
+
+- **factorio-mocks**: Issues and PRs automatically added via built-in GitHub Projects workflow
+- **All other repositories**: PRs automatically added via GitHub Actions when opened or reopened
+- **Unified tracking**: All development activity appears on the central project board
+
+**Testing and Troubleshooting**: See the quick reference guide for verification steps and common issues.
+
+## Repository Setup Summary
+
+### Configuration Matrix
+
+| Setting/Feature | Hub (factorio-mocks) | Other Repositories |
+|----------------|---------------------|-------------------|
+| **Issues** | ✅ Enabled (centralized) | ❌ Disabled |
+| **Discussions** | ✅ Enabled | ❌ Disabled |
+| **Projects** | ✅ Enabled | ✅ Enabled (required for automation) |
+| **Sponsorships** | ✅ Enabled (Ko-fi link) | ✅ Enabled (Ko-fi link) |
+| **Branch Protection** | ✅ All rules apply | ✅ All rules apply |
+| **Security Settings** | ✅ All enabled | ✅ All enabled |
+| **Labels** | ✅ Full set (21 labels) | ✅ Subset for PR management |
+| **Linear History** | ✅ Squash merge only | ✅ Squash merge only |
+
+### Setup Checklist by Repository
+
+#### factorio-mocks (Hub Repository)
+
+- [x] Repository description: "Comprehensive testing infrastructure for Factorio mod development - Planning &
+  coordination hub"
+- [x] All features enabled (Issues, Discussions, Projects, Sponsorships)
+- [x] Branch protection with status checks
+- [x] Security settings and Dependabot
+- [x] Full label setup (21 labels)
+- [x] Discussions categories configured
+- [x] Project board with comprehensive README
+
+#### factorio-mocks-generator
+
+- [x] Repository description: "Factorio mod for extracting game data to generate comprehensive mocks for mod testing"
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection with appropriate status checks
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+
+#### factorio-mocks-modpacks
+
+- [x] Repository description: "Curated modpack configurations and automation for comprehensive Factorio mod testing
+  scenarios"
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection with appropriate status checks
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+
+#### factorio-mocks-data
+
+- [x] Repository description: "Generated mock data artifacts from Factorio installations for mod testing and
+  development"
+- [x] **Main branch**: `stable` (not `main`)
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection for `stable` branch
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+
+#### factorio-mocks-loader
+
+- [x] Repository description: "Lua library for loading Factorio mock data in testing environments and development
+  workflows"
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection with appropriate status checks
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+  and all chatmodes
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+
+### Next Steps
+
+1. **Create remaining repositories** using GitHub web interface or CLI
+2. **Apply configurations** from the appropriate sections above
+3. **Set up initial repository structure** according to repository specifications
+4. **Link repositories** in README files with cross-references
+5. **Begin Phase 1 implementation** starting with generator prototype
