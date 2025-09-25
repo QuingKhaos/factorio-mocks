@@ -11,7 +11,7 @@ development phases.
 
 Use milestones to track major phase completion rather than version releases:
 
-#### Milestone 1: Foundation Complete
+#### Milestone 1: Basic Data Extraction and Loading
 
 **Phase Goal**: Establish core infrastructure and basic functionality for the ecosystem
 
@@ -61,7 +61,7 @@ community-browsable extracted data for compatibility mod creation
 **Success Metrics**: Community can discover available modpack configurations, browse extracted modpack data,
 use it for compatibility mod creation, and successfully request new modpack configurations through established processes
 
-**Dependencies**: Foundation Complete milestone must be finished
+**Dependencies**: Basic Data Extraction and Loading milestone must be finished
 
 #### Milestone 3: Advanced Loader Functionality
 
@@ -176,7 +176,7 @@ functionality and clear upgrade paths for future versions
 
 ### Current Milestones to Create
 
-1. **Foundation Complete**
+1. **Basic Data Extraction and Loading**
 2. **Modpack Support and Data Repository**
 3. **Advanced Loader Functionality**
 4. **Mock API and LocalisedString Support**
