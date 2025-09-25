@@ -11,7 +11,7 @@ development phases.
 
 Use milestones to track major phase completion rather than version releases:
 
-#### Milestone 1: Foundation Complete
+#### Milestone 1: Basic Data Extraction and Loading
 
 **Phase Goal**: Establish core infrastructure and basic functionality for the ecosystem
 
@@ -61,7 +61,7 @@ community-browsable extracted data for compatibility mod creation
 **Success Metrics**: Community can discover available modpack configurations, browse extracted modpack data,
 use it for compatibility mod creation, and successfully request new modpack configurations through established processes
 
-**Dependencies**: Foundation Complete milestone must be finished
+**Dependencies**: Basic Data Extraction and Loading milestone must be finished
 
 #### Milestone 3: Advanced Loader Functionality
 
@@ -73,7 +73,7 @@ runtime data, localization support, performance optimization, and automated CI/C
 **Key Deliverables**:
 
 - [ ] Runtime stage extraction for `prototypes` and `settings` data during game runtime
-- [ ] Comprehensive localization support with LocalisedString processing and multi-language capabilities
+- [ ] Localization extraction into combined `.cfg` per locale, later parsed to Lua tables from those files
 - [ ] Intelligent caching system with automatic staleness detection and configurable policies
 - [ ] GitHub Actions integration with reusable actions for automated testing workflows
 - [ ] Cross-platform testing automation and CI/CD integration examples
@@ -86,28 +86,29 @@ workflows, and multi-language testing scenarios with optimized performance
 
 **Dependencies**: Modpack Support and Data Repository milestone must be finished
 
-#### Milestone 4: Community Ready
+#### Milestone 4: Mock API and LocalisedString Support
 
-**Phase Goal**: Production-ready ecosystem optimized for widespread community adoption
+**Phase Goal**: Implement practical mock APIs for runtime testing and comprehensive LocalisedString processing,
+with advanced example projects
 
-**Community Value**: Provides polished, performant, and well-documented tooling that supports diverse
-community use cases and scales to broader adoption with production-grade reliability
+**Community Value**: Enables robust unit and integration testing for mods that depend on runtime Factorio APIs and localization,
+with clear documentation and advanced usage examples
 
 **Key Deliverables**:
 
-- [ ] Comprehensive performance analysis and optimization for large datasets
-- [ ] Security review of authentication, credential handling, and input validation
-- [ ] Comprehensive test coverage (90%+) for all ecosystem components
-- [ ] Complete documentation and tutorials for all use cases and workflows
-- [ ] Migration guides and best practices for production deployment
-- [ ] Community feedback incorporation from real-world usage scenarios
-- [ ] Cross-platform compatibility validation and automated testing
-- [ ] Error handling and recovery improvements with comprehensive logging
-- [ ] Production deployment guides with monitoring and troubleshooting
-- [ ] Community validation checkpoint - production readiness verification
+- [ ] Practical mock APIs for non-exportable Factorio globals (`game`, `script`, `commands`, etc.)
+- [ ] Mock helper functions for common mod development patterns
+- [ ] Comprehensive LocalisedString processing with plural rules, built-in parameters, and template substitution
+- [ ] Advanced example mod unit testing project demonstrating runtime mock data, event-driven logic, and mock API usage
+- [ ] Multi-language testing capabilities leveraging loader-provided localization data
+- [ ] Clear documentation and usage examples for all new features
+- [ ] Community validation checkpoint – advanced testing and localization workflows
 
-**Success Metrics**: Ecosystem supports diverse community needs efficiently, demonstrates production-grade
-reliability, and is ready for widespread community adoption and public announcement
+**Success Metrics**:
+
+- Community can test mods using runtime mock APIs and localization features
+- Advanced example projects are cloneable and demonstrate real-world usage
+- Documentation enables adoption for complex testing scenarios
 
 **Dependencies**: Advanced Loader Functionality milestone must be finished
 
@@ -117,28 +118,25 @@ After initial ecosystem is established, switch to version milestones:
 
 #### Milestone: v1.0.0 Release
 
-**Phase Goal**: Deliver first stable, production-ready release with API stability guarantees and comprehensive
-ecosystem maturity
+**Phase Goal**: Deliver first stable release with API stability commitments and reliable ecosystem functionality
 
-**Community Value**: Provides stable foundation for long-term mod development workflows, with reliable APIs and
-guaranteed backward compatibility that teams can depend on for production use
+**Community Value**: Provides stable foundation for long-term mod development workflows, with reliable APIs
+and backward compatibility guarantees that teams can depend on for mod development
 
 **Key Deliverables**:
 
 - [ ] API stability commitments made with semantic versioning policy
-- [ ] Comprehensive test coverage across all ecosystem components
-- [ ] Production deployment guide with best practices and troubleshooting
-- [ ] Performance benchmarks and optimization for large-scale usage
-- [ ] Breaking change migration guides and tooling
-- [ ] Community adoption metrics met (usage statistics, feedback quality)
-- [ ] Security audit and vulnerability assessment completed
-- [ ] Long-term maintenance and support strategy documented
-- [ ] Community validation checkpoint - production readiness verification
+- [ ] Ecosystem addresses all major Factorio mod testing challenges identified during Phase 4
+- [ ] Cross-platform compatibility validated (Windows, Linux, macOS)
+- [ ] Basic performance optimization for common use cases
+- [ ] Complete documentation and usage examples for all features
+- [ ] Breaking change migration guides for any API changes from Phase 4
+- [ ] Community feedback incorporated from real-world usage scenarios
 
-**Success Metrics**: Ecosystem is stable enough for production use by mod development teams, with clear upgrade
-paths and reliable performance at scale
+**Success Metrics**: Ecosystem is stable enough for regular use by mod development teams, with reliable
+functionality and clear upgrade paths for future versions
 
-**Dependencies**: Community Ready milestone must be finished, plus sufficient real-world usage and feedback
+**Dependencies**: Mock API and LocalisedString Support milestone must be finished
 
 ## Milestone Management Best Practices
 
@@ -178,10 +176,10 @@ paths and reliable performance at scale
 
 ### Current Milestones to Create
 
-1. **Foundation Complete**
+1. **Basic Data Extraction and Loading**
 2. **Modpack Support and Data Repository**
 3. **Advanced Loader Functionality**
-4. **Community Ready**
+4. **Mock API and LocalisedString Support**
 
 ### Milestone Description Template
 
@@ -191,6 +189,7 @@ paths and reliable performance at scale
 **Community Value**: [What value does completing this phase deliver?]
 
 **Key Deliverables**:
+
 - [ ] Deliverable 1
 - [ ] Deliverable 2
 - [ ] Community validation checkpoint

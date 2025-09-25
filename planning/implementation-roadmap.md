@@ -26,7 +26,7 @@ onboarding processes.*
 - Cross-platform compatibility validation
 - Documentation completeness requirements
 
-## Phase 1: Foundation
+## Phase 1: Basic Data Extraction and Loading
 
 **Goal**: Establish core infrastructure and basic functionality
 
@@ -234,22 +234,17 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Proper coordination between data and control stage extraction
 - Maintains compatibility with existing prototype extraction
 
-### 3.2 Localization Support
+### 3.2 Localization Extraction
 
 **Deliverables**:
 
+- [ ] Extend `factorio-mocks-generator` with locale files extraction
 - [ ] Extract all `.cfg` files from base game and active mods
 - [ ] Merge mod localization files into consolidated format
-- [ ] Implement LocalisedString processing in `factorio-mocks-loader`
-- [ ] Support for complex plural rules and built-in parameters
-- [ ] Multi-language testing capabilities
 
 **Success Criteria**:
 
 - All supported languages extracted and available
-- LocalisedString resolution works for basic cases
-- Plural rules and special parameters handled correctly
-- Multi-language test examples working
 
 ### 3.3 Intelligent Caching System
 
@@ -283,73 +278,57 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Example CI/CD configurations work for common scenarios
 - All platforms supported in automated testing
 
-## Phase 4: Community Ready
+## Phase 4: Mock API and LocalisedString Support
 
-**Goal**: Optimize performance, enhance security, and prepare for community adoption
+**Goal**: Implement comprehensive mock APIs and localization processing in the central hub
 
-### 4.1 Performance Optimization
-
-**Deliverables**:
-
-- [ ] Comprehensive performance analysis and optimization
-- [ ] Memory usage optimization for large datasets
-- [ ] Network transfer optimization and compression
-- [ ] Concurrent processing for extraction and loading
-
-**Success Criteria**:
-
-- Significant performance improvements across all components
-- Memory usage remains reasonable for largest modpacks
-- Network transfers optimized through compression and caching
-- Extraction and loading times meet production requirements
-
-### 4.2 Security and Reliability
+### 4.1 Mock API Implementation
 
 **Deliverables**:
 
-- [ ] Security review of all authentication and credential handling
-- [ ] Input validation and sanitization hardening
-- [ ] Error handling and recovery improvements
-- [ ] Comprehensive logging and monitoring
+- [ ] Practical coverage of the most commonly used non-exportable Factorio API (`game`, `script`, `commands`, etc.)
+- [ ] Mock helper functions commonly used in mod development
 
 **Success Criteria**:
 
-- Security review passes without major issues
-- All user inputs properly validated and sanitized
-- Graceful handling of network failures and data corruption
-- Adequate logging for troubleshooting and monitoring
+- Mock APIs provide realistic behavior for the most common and testable mod operations
+- Practical coverage of the most widely used non-exportable Factorio API surface, with clear documentation of limitations
+- Mock APIs integrate seamlessly with loaded prototype/runtime data
+- Clear documentation and examples for all mock APIs, including known limitations and unsupported features
 
-### 4.3 Comprehensive Testing and Documentation
+### 4.2 LocalisedString Processing Implementation
 
 **Deliverables**:
 
-- [ ] Comprehensive test coverage for all repositories
-- [ ] Integration testing across the entire ecosystem
-- [ ] Complete documentation for all APIs and workflows
-- [ ] Migration guides and best practices
+- [ ] Implement comprehensive LocalisedString processing with full union type support
+- [ ] Support for complex plural rules and built-in parameters (`__ITEM__`, `__ENTITY__`, etc.)
+- [ ] Template substitution with `__1__`, `__2__` placeholders (up to 20 parameters)
+- [ ] Fallback logic (`"?"` key) and concatenation (`""` key) support
+- [ ] Multi-language testing capabilities leveraging loader-provided localization data
 
 **Success Criteria**:
 
-- Test coverage exceeds 90% for all critical functionality
-- Integration tests validate cross-repository compatibility
-- Documentation enables successful adoption by new users
-- Migration guides support users coming from other solutions
+- LocalisedString resolution works correctly for all union cases
+- Plural rules and special parameters handled according to Factorio specifications
+- Multi-language test examples demonstrate full functionality
+- Prevents infinite recursion with proper depth limiting
+- Integration with mock data from `factorio-mocks-loader`
 
-### 4.4 Community Release Preparation
+### 4.3 Advanced Example Mod Unit Testing Project
 
 **Deliverables**:
 
-- [ ] Community feedback collection and validation
-- [ ] Release candidate preparation and validation
-- [ ] Community feedback integration and final adjustments
-- [ ] Official v1.0 release
+- [ ] Create dedicated advanced example repository (e.g., `factorio-mocks-example-advanced`)
+- [ ] Demonstrate use of runtime mock data, event-driven logic, and mock API surface
+- [ ] Include comprehensive unit and integration tests for runtime scenarios
+- [ ] Provide full documentation and setup instructions for advanced use cases
 
 **Success Criteria**:
 
-- Community provides valuable feedback and validation through regular usage
-- Release candidate demonstrates stability and completeness
-- Community feedback incorporated into final release
-- Official release meets all success criteria and community expectations
+- Advanced example project demonstrates realistic usage of runtime mock data and APIs
+- Project covers event-driven, stateful, and integration testing scenarios
+- Repository is fully documented, cloneable, and easy to adapt for real mod projects
+- Documentation enables community adoption for advanced testing workflows
 
 ## Success Metrics and Evaluation
 

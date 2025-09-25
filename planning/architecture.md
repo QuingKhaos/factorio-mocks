@@ -253,20 +253,6 @@ oras attach ghcr.io/quingkhaos/factorio-mocks-data/vanilla:2.0.66-2024.12.15 \
 3. **Environment Setup**: Loader fetches data and sets up global environment
 4. **Testing**: Consumer code runs with complete Factorio API mocks available
 
-## Scalability and Performance
-
-### Caching Strategy
-
-- **Multi-Level Caching**: Local filesystem, OCI registry layers, CDN distribution
-- **Intelligent Updates**: Staleness detection and incremental updates
-- **Deduplication**: Common data shared across modpack configurations
-
-### Performance Optimizations
-
-- **Lazy Loading**: Load only requested data components
-- **Parallel Processing**: Concurrent data extraction and processing
-- **Compression**: Efficient serialization and compression of large datasets
-
 ## Security and Reliability
 
 ### Authentication
