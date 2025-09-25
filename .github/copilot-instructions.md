@@ -1,222 +1,134 @@
 # Copilot Instructions for Factorio Mocks
 
-## Project Overview
+## Architecture Overview
 
-The **Factorio Mocks Ecosystem** is a comprehensive five-repository system designed to provide mock data for Factorio
-mod development. This project enables developers to test mods without running the full Factorio game, making development
-faster and more accessible.
+**Five-Repository Ecosystem** for comprehensive Factorio mod testing infrastructure:
 
-**Architecture**: Five-repository ecosystem with ORAS distribution
-**Philosophy**: Iterative development with community-first approachtory system
+1. **`factorio-mocks`** (this repo) - Central hub: planning, documentation, mock APIs, CI integration
+2. **`factorio-mocks-generator`** - Factorio mod for extracting game data (`data.raw`, `prototypes`, localization)
+3. **`factorio-mocks-modpacks`** - Modpack configurations with ORAS artifact distribution
+4. **`factorio-mocks-data`** - Generated mock data storage (Git + ORAS containers)
+5. **`factorio-mocks-loader`** - Lua runtime library for consuming mock data
 
-### Core Architecture
+**Key Integration**: All ecosystem issues centralized here with `ecosystem: generator|modpacks|data|loader` labels.
 
-The ecosystem consists of five interconnected repositories:
+## Critical Development Patterns
 
-1. `factorio-mocks` (this repo) - Central planning, documentation, and coordination
-2. `factorio-mocks-generator` - Automated data extraction from Factorio installations
-3. `factorio-mocks-modpacks` - Curated mod combinations and configurations
-4. `factorio-mocks-data` - Generated mock data artifacts
-5. `factorio-mocks-loader` - Runtime library for consuming mock data
+### Planning-First Workflow
 
-### Key Architectural Decisions
-
-- **Latest Mod Versions Strategy**: Only Factorio version is pinned; all mods use latest compatible versions
-- **Daily Automated Builds**: Continuous integration captures latest mod ecosystem state
-- **ORAS Distribution**: Container-based artifact distribution via GitHub Container Registry
-- **Native Mod Management**: No external mod managers; direct integration with Factorio's native systems
-- **Modular Design**: Early community access to data browsing while development continues
-- **Centralized Issue Tracking**: All ecosystem issues filed in `factorio-mocks` repository; Issues disabled in other repos
-
-## Development Philosophy
-
-### Iterative Over Complex
-
-- Prefer simple, working solutions over complex formal processes
-- Continuous feedback over formal beta testing programs
-- Progressive enhancement over big-bang releases
-
-### Community-First
-
-- Enable community data browsing as early as possible
-- Separate technical roadmap from community engagement for independent maintenance
-- Support multiple contributor skill levels with clear onboarding paths
-
-## Code Standards and Conventions
-
-### Documentation
-
-- All planning documents live in `planning/` directory
-- Use comprehensive markdown linting (`.markdownlint.json` configured)
-- Maintain proper noun consistency (Factorio, GitHub, ORAS, etc.)
-- Document architectural decisions formally in `planning/decisions/adr-NNNN-*.md` via `create-architectural-decision-record.prompt.md`.
-
-### File Structure
+**All architectural changes require ADR documentation:**
 
 ```bash
-planning/
-├── architecture.md              # Core ecosystem design
-├── decisions/adr-NNNN-*.md      # Formal architectural decisions
-├── implementation-roadmap.md    # Technical development phases
-├── repository-specifications.md # Detailed repo specs
-└── community-engagement.md      # Community strategy
-
-.github/
-├── workflows/qa.yml             # Quality assurance automation
-├── ISSUE_TEMPLATE/              # Structured issue templates
-├── PULL_REQUEST_TEMPLATE/       # PR template with checklists
-├── scripts/setup-labels.ps1     # Label automation script
-├── instructions/                # Copilot instruction files (auto-loaded)
-├── MILESTONES_STRATEGY.md       # Milestone planning approach
-├── REPOSITORY_SETUP.md          # GitHub configuration guide
-├── SECURITY.md                  # Security policy
-├── dependabot.yml               # Dependency management
-└── copilot-instructions.md      # This file
-
-CONTRIBUTING.md                  # Community contribution guidelines
+# Use the prompt template for structured decisions
+.github/prompts/create-architectural-decision-record.prompt.md
+# Results in: planning/decisions/adr-NNNN-title.md
 ```
 
-## Technical Context
+**Always update planning docs when changing architecture:**
+
+- `planning/architecture.md` - Ecosystem design
+- `planning/implementation-roadmap.md` - Development phases
+- `planning/repository-specifications.md` - Repository details
+
+### Conventional Commit Workflow
+
+**Use the XML-based commit prompt:**
+
+```bash
+# Structured commit generation via:
+.github/prompts/conventional-commit.prompt.md
+```
+
+**Commit types for this repo:**
+
+- `docs(planning): ...` - Planning document changes
+- `feat(mocks): ...` - New mock API implementations
+- `ci(qa): ...` - QA workflow improvements
+- `refactor(milestones): ...` - Project structure changes
+
+### Quality Assurance Integration
+
+**All changes validated by `.github/workflows/qa.yml`:**
+
+- Markdown linting (`.markdownlint.json` config)
+- JSON validation for configuration files
+- Documentation structure validation
+- ADR file presence checking
+
+## Project-Specific Conventions
+
+### Documentation Standards
+
+**File naming patterns:**
+
+- ADRs: `adr-NNNN-brief-title.md` in `planning/decisions/`
+- Planning docs: `kebab-case.md` in `planning/`
+- Prompts: `kebab-case.prompt.md` in `.github/prompts/`
+
+**Content requirements:**
+
+- 120 character line limits
+- Proper noun consistency: "Factorio", "GitHub", "ORAS", "Lua"
+- Cross-reference related documents
+- **Never commit to specific timelines** - use dependency-based sequencing
+
+### Ecosystem Coordination Patterns
+
+**Cross-repository work:**
+
+- Issues filed here with ecosystem labels for routing
+- Planning changes synchronized across all repositories
+- Architectural decisions documented here affect all repos
+
+**Label strategy:**
+
+- `ecosystem: generator|modpacks|data|loader` - Route to correct repository
+- `effort: quick-win|moderate|substantial` - Contributor guidance
+- `adr` - Architectural decision requests
+
+## Development Context
 
 ### Key Technologies
 
-- **Distribution**: ORAS (OCI Registry as Storage)
-- **Data Format**: Serpent-serialized Lua structures
-- **Automation**: GitHub Actions for daily builds
-- **Documentation**: Markdown with comprehensive linting
+- **Distribution**: ORAS (OCI Registry as Storage) for artifact distribution
+- **Data Format**: Serpent-serialized Lua structures (not JSON)
+- **Automation**: GitHub Actions with cross-repository workflows
+- **Validation**: LIVR (Language Independent Validation Rules) for data quality
 
-### Integration Points
+### Build and Test Commands
 
-- Factorio mod portal API for mod discovery and metadata
-- GitHub Container Registry for artifact storage and distribution
-- Cross-repository automation workflows for ecosystem coordination
+```bash
+# Run QA validation locally
+npm install -g markdownlint-cli jsonlint
+pip3 install jsonschema
 
-## Development Workflow
+# Validate markdown (--dot flag essential for .github/ directory)
+markdownlint --config .markdownlint.json --dot **/*.md
 
-### Planning Updates
+# Validate JSON configs
+find . -name "*.json" -exec jsonlint {} \;
+```
 
-1. All architectural changes must be documented in `planning/decisions/adr-NNNN-<title>.md`
-2. Update relevant planning documents to maintain consistency
-3. Run QA workflow to validate documentation quality
-4. Use conventional commits with clear rationale
-5. **Never commit to specific timelines** in documentation - use dependency-based sequencing instead
+### Critical Integration Points
 
-### GitHub Infrastructure
+**Factorio API References:**
 
-- **Issue Templates**: Bug reports, feature requests, architectural decisions, documentation issues
-- **PR Template**: Comprehensive checklist covering code quality, testing, and architectural alignment
-- **Labels**: Effort-based (quick-win, moderate, substantial), type, component, and ecosystem coordination
-- **Milestones**: Phase-based tracking without timeline commitments
-- **Security**: Dependabot, secret scanning, and comprehensive security policy
+- [Lua API Docs](https://lua-api.factorio.com/) - Official API reference
+- [Data Lifecycle](https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html) - Game stages
+- [Mod Structure](https://lua-api.factorio.com/latest/auxiliary/mod-structure.html) - File organization
 
-### Quality Assurance
+**External Dependencies:**
 
-- GitHub Actions QA workflow validates all documentation
-- Markdown linting enforces consistency and proper nouns
-- JSON validation ensures configuration file integrity
-- Documentation structure validation prevents missing files
-- Branch protection requires PR review and status checks
-
-## Common Tasks and Patterns
-
-### GitHub Repository Management
-
-**Prepared Infrastructure Files**:
-
-- **4 Issue Templates**: Bug reports, feature requests, architectural decisions, documentation issues (ready to use)
-- **Comprehensive PR Template**: Quality checklist covering code, testing, documentation, and architecture (ready to use)
-- **21 Standardized Labels**: Effort-based (quick-win, moderate, substantial), type, component, ecosystem (script ready
-  to run)
-- **Phase-Based Milestones**: Basic Data Extraction and Loading → Modpack Support and Data Repository → Advanced Loader Functionality
-  → Mock API and LocalisedString Support (strategy documented)
-- **Security Configuration**: Dependabot config, security policy prepared (ready to apply)
-- **Label Setup Script**: `.github/scripts/setup-labels.ps1` for automated label creation (not yet executed)
-- **Complete Setup Guide**: `.github/REPOSITORY_SETUP.md` with step-by-step GitHub configuration (ready to follow)
-
-**Label Strategy**:
-
-- **Effort Labels**: `effort: quick-win`, `effort: moderate`, `effort: substantial` (help contributors choose appropriate
-  tasks)
-- **Type Labels**: `type: bug`, `type: feature`, `type: documentation`, `type: maintenance`
-- **Component Labels**: `component: architecture`, `component: ci-cd`, `component: planning`, `component: templates`
-- **Ecosystem Labels**: `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
-- **Special Labels**: `adr`, `breaking-change`, `good-first-issue`, `help-wanted`, `needs-discussion`, `blocked`
-
-**Milestone Philosophy**:
-
-- Use **phase-based milestones** instead of version numbers during initial development
-- Focus on **dependency-based sequencing** rather than calendar commitments
-- Each milestone represents **community value delivery** with clear success criteria
-- Switch to version milestones only after stable releases and community adoption
-
-### Community Engagement Guidelines
-
-- Maintain low barrier to entry for contributors
-- Provide clear documentation for all skill levels
-- Enable early access to useful functionality
-- Iterate based on community feedback rather than formal processes
-- Use effort labels to help contributors find appropriate tasks
-- Support multiple contribution levels through comprehensive issue templates
-- Follow CONTRIBUTING.md guidelines for all community interactions
-
-### Community Announcements
-
-**Proactive Announcement System**: GitHub Copilot actively identifies announcement opportunities during development
-sessions and guides the collaborative creation process using numbered draft files (`NNNN-descriptive-name.md`) in
-`.github/drafts/announcements/`.
-
-**Full Workflow**: See `.github/instructions/announcement-creation-assistant.instructions.md` for comprehensive
-guidance on:
-
-- When to suggest announcements (milestone completions, working functionality, breaking changes, etc.)
-- Step-by-step collaborative drafting process
-- Template selection and content quality standards
-- Publication workflow from draft files to GitHub Discussions
-
-**Quick Reference**: Templates available in `.github/ANNOUNCEMENT_GUIDELINES.md` for phase completions, functionality
-releases, breaking changes, community milestones, and progress updates.
-
-## Important Notes
-
-### Version Management
-
-- **Factorio versions**: Pinned to specific releases (e.g. 2.0.x)
-- **Mod versions**: Always use latest compatible versions
-- **Daily builds**: Capture evolving mod ecosystem automatically
-- **Breaking changes**: Handled through Factorio version separation
-
-### Distribution Strategy
-
-- ORAS enables efficient artifact distribution
-- GitHub Container Registry provides reliable hosting
-- Native mod loading avoids external dependencies
-- Cross-platform compatibility maintained
-
-### Future Considerations
-
-- Scalable architecture supports growing mod ecosystem
-- Community contributions encouraged at all levels
-- Documentation-first approach for all major changes
+- GitHub Container Registry for ORAS artifact hosting
+- Factorio Mod Portal API for mod metadata and dependencies
+- Cross-platform compatibility requirements (Windows, Linux, macOS)
 
 ---
 
-## Quick Reference
+**Quick Reference:**
 
-**Main Planning Docs**: `planning/` directory
-**QA Workflow**: `.github/workflows/qa.yml`
-**Markdown Config**: `.markdownlint.json`
-**GitHub Setup**: `.github/REPOSITORY_SETUP.md`
-**Milestones**: `.github/MILESTONES_STRATEGY.md`
-**Contributing**: `CONTRIBUTING.md`
-**Architecture**: Five-repository ecosystem with ORAS distribution
-**Philosophy**: Iterative development with community-first approach
-**Timeline Policy**: Never commit to specific dates in documentation
-
-## Ecosystem Integration
-
-### Repository Coordination
-
-- **Issue Centralization**: All ecosystem issues filed in main repository with ecosystem labels
-- **Cross-Repository Labels**: Use `ecosystem: generator`, `ecosystem: modpacks`, `ecosystem: data`, `ecosystem: loader`
-  for proper routing
-- **Planning Synchronization**: Changes to planning documents should be reflected across ecosystem documentation
+- Planning docs: `planning/` directory
+- QA workflow: `.github/workflows/qa.yml`
+- Commit prompts: `.github/prompts/`
+- ADR template: `.github/prompts/create-architectural-decision-record.prompt.md`
+- Philosophy: Community-first, iterative development with comprehensive planning
