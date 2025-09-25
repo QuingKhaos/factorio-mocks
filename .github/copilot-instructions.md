@@ -78,20 +78,10 @@ CONTRIBUTING.md                  # Community contribution guidelines
 
 ## Technical Context
 
-### Current Status
-
-- **Phase**: Phase 1.1 (Repository Setup and Planning) complete - all five repositories created and fully configured
-- **Repository Progress**: 5/5 repositories created with complete GitHub infrastructure and development tooling
-- **Planning Status**: Planning documents aligned and synchronized with all repositories established
-- **Recent Updates**: All ecosystem repositories configured with workflows, security policies, copilot instructions,
-  and development standards
-- **Next Phase**: Begin Phase 1.2 implementation (Basic Extraction in factorio-mocks-generator)
-- **Dependencies**: None external; all repositories established and ready for development
-
 ### Key Technologies
 
 - **Distribution**: ORAS (OCI Registry as Storage)
-- **Data Format**: JSON-based mock structures
+- **Data Format**: Serpent-serialized Lua structures
 - **Automation**: GitHub Actions for daily builds
 - **Documentation**: Markdown with comprehensive linting
 
@@ -129,45 +119,6 @@ CONTRIBUTING.md                  # Community contribution guidelines
 
 ## Common Tasks and Patterns
 
-### Adding New Architectural Decisions
-
-```markdown
-## Decision [N]: [Title]
-
-**Decision**: [What was decided and why]
-
-**Context**: [Background and problem statement]
-
-**Options Considered**:
-1. **Option A**: Description
-2. **Option B**: Description
-3. **Option C**: Description
-
-**Decision Rationale**:
-
-**Advantages of Chosen Approach**:
-- Point 1
-- Point 2
-
-**Trade-offs Accepted**:
-- Point 1
-- Point 2
-
-**Implementation Notes**:
-- Implementation detail 1
-- Implementation detail 2
-```
-
-### Repository Creation Checklist
-
-Each new repository should include:
-
-- [ ] Clear README with ecosystem context
-- [ ] GitHub Actions workflows for automation
-- [ ] Consistent markdown linting configuration
-- [ ] Proper conventional commit setup
-- [ ] Documentation linking back to main planning
-
 ### GitHub Repository Management
 
 **Prepared Infrastructure Files**:
@@ -176,8 +127,8 @@ Each new repository should include:
 - **Comprehensive PR Template**: Quality checklist covering code, testing, documentation, and architecture (ready to use)
 - **21 Standardized Labels**: Effort-based (quick-win, moderate, substantial), type, component, ecosystem (script ready
   to run)
-- **Phase-Based Milestones**: Foundation Complete → Modpack Support and Data Repository → Advanced Loader Functionality
-  → Community Ready (strategy documented)
+- **Phase-Based Milestones**: Basic Data Extraction and Loading → Modpack Support and Data Repository → Advanced Loader Functionality
+  → Mock API and LocalisedString Support (strategy documented)
 - **Security Configuration**: Dependabot config, security policy prepared (ready to apply)
 - **Label Setup Script**: `.github/scripts/setup-labels.ps1` for automated label creation (not yet executed)
 - **Complete Setup Guide**: `.github/REPOSITORY_SETUP.md` with step-by-step GitHub configuration (ready to follow)
