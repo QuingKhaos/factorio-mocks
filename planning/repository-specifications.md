@@ -205,7 +205,7 @@ factorio-mocks-data/
 │   │   ├── locale/
 │   │   │   ├── en.cfg
 │   │   │   ├── fr.cfg
-│   │   │   └── [other-languages]/
+│   │   │   └── [other-languages]
 │   │   └── metadata.json              # Basic metadata and checksums
 │   └── [other-modpacks]/
 └── README.md                  # Data repository documentation and usage

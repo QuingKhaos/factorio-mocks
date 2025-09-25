@@ -646,17 +646,17 @@ After completing the setup in `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`:
 
 #### factorio-mocks-data
 
-- [ ] Repository description: "Generated mock data artifacts from Factorio installations for mod testing and
+- [x] Repository description: "Generated mock data artifacts from Factorio installations for mod testing and
   development"
-- [ ] **Main branch**: `stable` (not `main`)
-- [ ] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
-- [ ] Branch protection for `stable` branch
-- [ ] Security settings and Dependabot
-- [ ] Essential labels for PR management (type, component, ecosystem)
-- [ ] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
-- [ ] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
+- [x] **Main branch**: `stable` (not `main`)
+- [x] Issues disabled, Projects enabled, sponsorships enabled for ecosystem support
+- [x] Branch protection for `stable` branch
+- [x] Security settings and Dependabot
+- [x] Essential labels for PR management (type, component, ecosystem)
+- [x] GitHub Action workflow setup (follow `.github/CROSS_REPOSITORY_AUTOMATION_QUICKREF.md`)
+- [x] GitHub Copilot configuration: Copy `conventional-commit.prompt.md`, `create-pull-request-draft.prompt.md`,
   and all chatmodes
-- [ ] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
+- [x] GitHub Copilot instructions: Copy universal instructions (commenting, CI/CD, markdown standards)
 
 #### factorio-mocks-loader
 
