@@ -298,11 +298,8 @@ factorio-mocks-loader/
 │   └── localization-example.lua
 ├── spec/
 │   └── [test-files]/
-├── rockspecs/
-│   └── factorio-mocks-loader*.rockspec
+├── factorio-mocks-loader-dev-1.rockspec
 └── docs/
-    ├── api-reference.md
-    └── configuration.md
 ```
 
 ### Key Features
@@ -310,13 +307,8 @@ factorio-mocks-loader/
 **Simple API**:
 
 ```lua
-local mocks = require("factorio-mocks-loader")
-
 -- One-line setup for most use cases
-mocks.setup_environment("vanilla", {
-    stage = "prototype",
-    localization = "en"
-})
+require("factorio-mocks-loader").setup("space-exploration", "prototype")
 ```
 
 **Flexible Configuration**:
@@ -339,48 +331,6 @@ mocks.setup_environment("vanilla", {
 - **ORAS Artifacts**: Pull from OCI registries with layer caching
 - **Local Files**: Support for offline development and testing
 - **Hybrid Mode**: Automatic fallback between sources
-
-### Consumer Integration Examples
-
-**Basic Mod Testing**:
-
-```lua
--- Install: luarocks install factorio-mocks-loader
-local mocks = require("factorio-mocks-loader")
-
--- Set up vanilla environment
-mocks.setup_environment("vanilla", {
-    stage = "prototype",
-    localization = "en"
-})
-
--- Now data.raw, mods, settings, feature_flags are available
-assert(data.raw.recipe["iron-plate"])
-assert(mods["base"] == "2.0.0")
-assert(settings.startup["some-setting"])
-```
-
-**Advanced Integration Testing**:
-
-```lua
-local mocks = require("factorio-mocks-loader")
-
--- Test with complex modpack
-mocks.setup_environment("pyanodons", {
-    stage = "runtime",
-    localization = {"en", "fr"},
-    cache_dir = "test_cache",
-    version = "2.0.66-2024.11.15"  -- Specific historical version
-})
-
--- Test runtime prototypes access
-local recipes = prototypes.recipe
-assert(recipes["py-advanced-circuit"])
-
--- Test localization
-local localized = mocks.localize("recipe-name.py-advanced-circuit", "fr")
-assert(localized == "Circuit avancé Py")
-```
 
 ## Cross-Repository Integration
 
