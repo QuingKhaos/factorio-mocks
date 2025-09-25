@@ -11,6 +11,3 @@
 
 # Ignore non-markdown files that use # comments
 .github/CODEOWNERS
-
-# Ignore draft files (working documents with intentional formatting flexibility)
-.github/drafts/**
