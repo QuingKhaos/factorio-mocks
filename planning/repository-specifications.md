@@ -290,12 +290,10 @@ factorio-mocks-loader/
 │   ├── data-fetcher.lua       # On-demand data downloading
 │   ├── cache-manager.lua      # Intelligent caching system
 │   ├── environment-setup.lua  # Test environment configuration
-│   ├── localization.lua       # Localization support
 │   └── integrity.lua          # Basic integrity checks (checksums, format validation)
 ├── examples/
 │   ├── basic-usage.lua
-│   ├── advanced-configuration.lua
-│   └── localization-example.lua
+│   └── advanced-configuration.lua
 ├── spec/
 │   └── [test-files]/
 ├── factorio-mocks-loader-dev-1.rockspec

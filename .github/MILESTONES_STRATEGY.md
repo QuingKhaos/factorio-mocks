@@ -73,7 +73,7 @@ runtime data, localization support, performance optimization, and automated CI/C
 **Key Deliverables**:
 
 - [ ] Runtime stage extraction for `prototypes` and `settings` data during game runtime
-- [ ] Comprehensive localization support with LocalisedString processing and multi-language capabilities
+- [ ] Localization extraction into combined `.cfg` per locale, later parsed to Lua tables from those files
 - [ ] Intelligent caching system with automatic staleness detection and configurable policies
 - [ ] GitHub Actions integration with reusable actions for automated testing workflows
 - [ ] Cross-platform testing automation and CI/CD integration examples
@@ -86,7 +86,33 @@ workflows, and multi-language testing scenarios with optimized performance
 
 **Dependencies**: Modpack Support and Data Repository milestone must be finished
 
-#### Milestone 4: Community Ready
+#### Milestone 4: Mock API and LocalisedString Support
+
+**Phase Goal**: Implement practical mock APIs for runtime testing and comprehensive LocalisedString processing,
+with advanced example projects
+
+**Community Value**: Enables robust unit and integration testing for mods that depend on runtime Factorio APIs and localization,
+with clear documentation and advanced usage examples
+
+**Key Deliverables**:
+
+- [ ] Practical mock APIs for non-exportable Factorio globals (`game`, `script`, `commands`, etc.)
+- [ ] Mock helper functions for common mod development patterns
+- [ ] Comprehensive LocalisedString processing with plural rules, built-in parameters, and template substitution
+- [ ] Advanced example mod unit testing project demonstrating runtime mock data, event-driven logic, and mock API usage
+- [ ] Multi-language testing capabilities leveraging loader-provided localization data
+- [ ] Clear documentation and usage examples for all new features
+- [ ] Community validation checkpoint – advanced testing and localization workflows
+
+**Success Metrics**:
+
+- Community can test mods using runtime mock APIs and localization features
+- Advanced example projects are cloneable and demonstrate real-world usage
+- Documentation enables adoption for complex testing scenarios
+
+**Dependencies**: Advanced Loader Functionality milestone must be finished
+
+#### Milestone 5: Community Ready
 
 **Phase Goal**: Production-ready ecosystem optimized for widespread community adoption
 
@@ -109,7 +135,7 @@ community use cases and scales to broader adoption with production-grade reliabi
 **Success Metrics**: Ecosystem supports diverse community needs efficiently, demonstrates production-grade
 reliability, and is ready for widespread community adoption and public announcement
 
-**Dependencies**: Advanced Loader Functionality milestone must be finished
+**Dependencies**: Mock API and LocalisedString Support milestone must be finished
 
 ### Version-Based Milestones (Future Use)
 

@@ -234,22 +234,17 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Proper coordination between data and control stage extraction
 - Maintains compatibility with existing prototype extraction
 
-### 3.2 Localization Support
+### 3.2 Localization Extraction
 
 **Deliverables**:
 
+- [ ] Extend `factorio-mocks-generator` with locale files extraction
 - [ ] Extract all `.cfg` files from base game and active mods
 - [ ] Merge mod localization files into consolidated format
-- [ ] Implement LocalisedString processing in `factorio-mocks-loader`
-- [ ] Support for complex plural rules and built-in parameters
-- [ ] Multi-language testing capabilities
 
 **Success Criteria**:
 
 - All supported languages extracted and available
-- LocalisedString resolution works for basic cases
-- Plural rules and special parameters handled correctly
-- Multi-language test examples working
 
 ### 3.3 Intelligent Caching System
 
@@ -283,11 +278,63 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Example CI/CD configurations work for common scenarios
 - All platforms supported in automated testing
 
-## Phase 4: Community Ready
+## Phase 4: Mock API and LocalisedString Support
+
+**Goal**: Implement comprehensive mock APIs and localization processing in the central hub
+
+### 4.1 Mock API Implementation
+
+**Deliverables**:
+
+- [ ] Practical coverage of the most commonly used non-exportable Factorio API (`game`, `script`, `commands`, etc.)
+- [ ] Mock helper functions commonly used in mod development
+
+**Success Criteria**:
+
+- Mock APIs provide realistic behavior for the most common and testable mod operations
+- Practical coverage of the most widely used non-exportable Factorio API surface, with clear documentation of limitations
+- Mock APIs integrate seamlessly with loaded prototype/runtime data
+- Clear documentation and examples for all mock APIs, including known limitations and unsupported features
+
+### 4.2 LocalisedString Processing Implementation
+
+**Deliverables**:
+
+- [ ] Implement comprehensive LocalisedString processing with full union type support
+- [ ] Support for complex plural rules and built-in parameters (`__ITEM__`, `__ENTITY__`, etc.)
+- [ ] Template substitution with `__1__`, `__2__` placeholders (up to 20 parameters)
+- [ ] Fallback logic (`"?"` key) and concatenation (`""` key) support
+- [ ] Multi-language testing capabilities leveraging loader-provided localization data
+
+**Success Criteria**:
+
+- LocalisedString resolution works correctly for all union cases
+- Plural rules and special parameters handled according to Factorio specifications
+- Multi-language test examples demonstrate full functionality
+- Prevents infinite recursion with proper depth limiting
+- Integration with mock data from `factorio-mocks-loader`
+
+### 4.3 Advanced Example Mod Unit Testing Project
+
+**Deliverables**:
+
+- [ ] Create dedicated advanced example repository (e.g., `factorio-mocks-example-advanced`)
+- [ ] Demonstrate use of runtime mock data, event-driven logic, and mock API surface
+- [ ] Include comprehensive unit and integration tests for runtime scenarios
+- [ ] Provide full documentation and setup instructions for advanced use cases
+
+**Success Criteria**:
+
+- Advanced example project demonstrates realistic usage of runtime mock data and APIs
+- Project covers event-driven, stateful, and integration testing scenarios
+- Repository is fully documented, cloneable, and easy to adapt for real mod projects
+- Documentation enables community adoption for advanced testing workflows
+
+## Phase 5: Community Ready
 
 **Goal**: Optimize performance, enhance security, and prepare for community adoption
 
-### 4.1 Performance Optimization
+### 5.1 Performance Optimization
 
 **Deliverables**:
 
@@ -303,7 +350,7 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Network transfers optimized through compression and caching
 - Extraction and loading times meet production requirements
 
-### 4.2 Security and Reliability
+### 5.2 Security and Reliability
 
 **Deliverables**:
 
@@ -319,7 +366,7 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Graceful handling of network failures and data corruption
 - Adequate logging for troubleshooting and monitoring
 
-### 4.3 Comprehensive Testing and Documentation
+### 5.3 Comprehensive Testing and Documentation
 
 **Deliverables**:
 
@@ -335,7 +382,7 @@ is implemented, enabling immediate community access while Phase 2 development pr
 - Documentation enables successful adoption by new users
 - Migration guides support users coming from other solutions
 
-### 4.4 Community Release Preparation
+### 5.4 Community Release Preparation
 
 **Deliverables**:
 
