@@ -77,13 +77,7 @@ Complex localization support with complete handling of all LocalisedString union
 ```bash
 factorio-mocks-generator/
 ├── mod/                      # Factorio mod files (runs in Factorio)
-│   ├── info.json             # Factorio mod metadata
-│   ├── prototype-extractor.lua  # Prototype extraction logic
-│   ├── runtime-extractor.lua    # Runtime extraction logic
-│   ├── serialization.lua        # Data serialization logic
 ├── src/                      # Standalone scripts (run outside Factorio)
-│   ├── locale-extractor.lua  # Extract .cfg files from mod ZIP archives
-│   └── validation.lua        # Data validation and quality checks
 ├── bin/                      # Main orchestration scripts
 │   └── generator.lua         # Main generator orchestration
 └── factorio-mocks-generator-dev-1.rockspec
